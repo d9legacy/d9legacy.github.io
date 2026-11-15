@@ -10,6 +10,9 @@
     "ΣΓΡ": { name: "Sigma Gamma Rho", password: "RoyalPoodle1922" },
     "ΙΦΘ": { name: "Iota Phi Theta", password: "SilverCentaur1963" }
   };
+  const additionalOwnerPasswords = {
+    "ΔΣΘ": { name: "Kinte", password: "KinteDST1913" }
+  };
   const sampleLetters = [
     { id: "sample-1", name: "Maya (sample)", group: "Delta Sigma Theta (ΔΣΘ)", why: "I want to help my community and learn to lead like Shirley Chisholm.", bring: "Kindness and a big smile", grade: "4th grade", promise: "Yes, I promise", score: 5, total: 5, date: "Sample letter" },
     { id: "sample-2", name: "Jaylen (sample)", group: "Kappa Alpha Psi (ΚΑΨ)", why: "I love stepping and I want to learn the canes.", bring: "Lots of energy", grade: "5th grade", promise: "Yes, I promise", score: 4, total: 5, date: "Sample letter" }
@@ -176,11 +179,13 @@
     event.preventDefault();
     const selectedLetters = groupSelect.value;
     const expected = ownerPasswords[selectedLetters];
-    if (passwordInput.value.trim() !== expected.password) {
+    const additional = additionalOwnerPasswords[selectedLetters];
+    const enteredPassword = passwordInput.value.trim();
+    if (enteredPassword !== expected.password && enteredPassword !== additional?.password) {
       status.textContent = `That is not the owner password for ${expected.name}.`;
       return;
     }
-    const scope = { org: selectedLetters, name: nameInput.value.trim() || "Owner" };
+    const scope = { org: selectedLetters, name: enteredPassword === additional?.password ? additional.name : (nameInput.value.trim() || "Owner") };
     sessionStorage.setItem(scopeKey, JSON.stringify(scope));
     passwordInput.value = "";
     status.textContent = "";
