@@ -55,7 +55,7 @@
     </div>
     <div id="d9-owner-inbox" hidden></div>
   `;
-  document.body.appendChild(panel);
+  document.getElementById("root").appendChild(panel);
   const groupSelect = panel.querySelector("#d9-owner-group");
   const nameInput = panel.querySelector("#d9-owner-name");
   const passwordInput = panel.querySelector("#d9-owner-password");
