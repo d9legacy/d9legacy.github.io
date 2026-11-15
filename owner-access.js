@@ -30,7 +30,7 @@
   const panel = document.createElement("section");
   panel.id = "d9-group-owner-panel";
   panel.className = "file-card";
-  panel.style.cssText = "box-sizing:border-box;position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:10000;max-width:min(1040px,calc(100vw - 32px));width:calc(100vw - 32px);max-height:calc(100vh - 32px);overflow-y:auto;margin:0;padding:24px;background:#fff;border:1px solid #e5ddd7;border-radius:8px;box-shadow:0 8px 24px rgba(30,20,15,.18);gap:16px;";
+  panel.style.cssText = "box-sizing:border-box;max-width:1040px;width:100%;margin:16px auto 32px;padding:24px;background:#fff;border:1px solid #e5ddd7;border-radius:8px;box-shadow:0 8px 24px rgba(30,20,15,.06);gap:16px;";
   panel.innerHTML = `
     <header>
       <p style="margin:0 0 6px;font-size:.9em;color:#74645b">Owner inbox</p>
@@ -55,7 +55,7 @@
     </div>
     <div id="d9-owner-inbox" hidden></div>
   `;
-  document.body.appendChild(panel);
+  document.getElementById("root").appendChild(panel);
   const groupSelect = panel.querySelector("#d9-owner-group");
   const nameInput = panel.querySelector("#d9-owner-name");
   const passwordInput = panel.querySelector("#d9-owner-password");
@@ -127,6 +127,7 @@
   }
   function render() {
     panel.hidden = !isInboxRoute();
+    panel.style.display = panel.hidden ? "none" : "flex";
     if (panel.hidden) return;
     const selectedLetters = groupSelect.value || Object.keys(ownerPasswords)[0];
     const org = { letters: selectedLetters, ...ownerPasswords[selectedLetters] };
