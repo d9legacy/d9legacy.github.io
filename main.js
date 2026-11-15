@@ -14414,6 +14414,7 @@ Error generating stack: ` + i.message + `
         wrongOwner ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "That is not the owner password. Only Josh knows it!" }) : null,
         saved.message ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: saved.message }) : null
       ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+        session.role === "owner" ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "welcome-member", children: "Welcome member!" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
           "Logged in as ",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: session.name }),
