@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D9Legacy</title>
+<link rel="stylesheet" href="main.css">
+<style>html,body{margin:0;background:#f4efec}</style>
+<script>
+(function(){
+  var P='d9legacy:';
+  window.instinctFile = Object.freeze({
+    initialRoute: decodeURIComponent(location.hash.slice(1) || '/'),
+    route: function(p){ if (typeof p==='string' && p.charAt(0)==='/' && ('#'+p)!==location.hash) history.replaceState(null,'', p==='/'?location.pathname:'#'+p); },
+    asset: function(u){ return u; },
+    request: function(method, params){
+      return new Promise(function(resolve){
+        try {
+          if (method==='local.read') { var v=localStorage.getItem(P+params.key); resolve(v===null?{status:'saved'}:{status:'saved',value:v}); }
+          else if (method==='local.write') { localStorage.setItem(P+params.key, params.value); resolve({status:'saved'}); }
+          else resolve({status:'unavailable'});
+        } catch(e){ resolve({status:'unavailable'}); }
+      });
+    },
+    live: { subscribe:function(){return function(){};}, hold:function(){}, reveal:function(){} }
+  });
+  window.addEventListener('hashchange', function(){
+    window.dispatchEvent(new CustomEvent('instinct-route',{detail: decodeURIComponent(location.hash.slice(1)||'/')}));
+  });
+})();
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script src="main.js"></script>
+</body>
+</html>
