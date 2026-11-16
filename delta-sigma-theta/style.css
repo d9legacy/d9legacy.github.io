@@ -222,3 +222,128 @@
   .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.35)}
   .card::after{content:attr(data-word);position:absolute;left:0;right:0;bottom:0;padding:8px 10px;text-align:center;background:linear-gradient(180deg,var(--purple),var(--purple-deep));color:var(--cream);font-family:Cinzel,serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;transform:translateY(110%);transition:transform .3s ease}
   .card:hover::after{transform:translateY(0)}
+
+/* === deltasigmatheta.org-inspired light reskin (white + crimson) === */
+:root{ --crimson:#a6192e; --crimson-deep:#7d1223; --paper-soft:#f6f4f0; }
+body{ background:#ffffff; color:#3a3a3a; font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif; }
+.frame{ display:none; }
+.topbar{ color:var(--crimson); padding-top:26px; }
+.topbar a{ color:var(--crimson); }
+.topbar a:hover{ color:var(--crimson-deep); }
+header.site{ border-bottom:3px solid var(--crimson); }
+.brand small{ color:var(--crimson); }
+.brand h1{ color:var(--crimson); }
+.brand .inc{ color:#555; }
+nav.main a{ color:#333; }
+nav.main a:hover, nav.main a.here{ color:var(--crimson); border-color:var(--crimson); }
+.hero .kicker{ color:var(--crimson); }
+.hero h2{ color:var(--crimson); }
+.hero .tagline{ color:var(--crimson); }
+.hero .climb{ color:#777; }
+.hero .scriptline{ color:var(--crimson); }
+.hero .crest{ border-color:var(--crimson); box-shadow:0 18px 40px rgba(166,25,46,.18); }
+.hero .greek{ text-shadow:none; }
+.btn{ border-color:var(--crimson); background:linear-gradient(180deg,#c22438,var(--crimson)); color:#fff; }
+.btn.ghost{ background:transparent; color:var(--crimson); }
+.page-hero .kicker{ color:var(--crimson); }
+.page-hero h2{ color:var(--crimson); }
+.page-hero .sub{ color:#777; }
+.sec-title .over{ color:var(--crimson); }
+.sec-title h3{ color:var(--crimson); }
+.rule{ background:var(--crimson); }
+.rule::after{ background:var(--crimson); }
+.card{ border:1px solid #e3dcd2; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+.card h4{ color:var(--crimson); }
+.card p{ color:#555; }
+.card .big{ color:var(--crimson); }
+.card .mini{ color:var(--crimson); }
+.history p{ color:#444; }
+.founder{ border-color:#e3dcd2; background:#faf8f4; }
+.founder .n{ color:var(--crimson); }
+.founder .r{ color:#888; }
+.owner{ border-color:var(--crimson); outline-color:var(--crimson); background:#faf8f4; }
+.owner .sig{ color:var(--crimson); }
+.owner .role{ color:#888; }
+.owner p{ color:#444; }
+.join p{ color:#444; }
+.principles{ color:var(--crimson); }
+.principles span::after{ color:#c9a13b; }
+.faith{ color:var(--crimson); }
+footer{ border-top:3px solid var(--crimson); }
+footer .f1{ color:var(--crimson); }
+footer .f2{ color:#777; }
+footer a{ color:var(--crimson); border-bottom-color:#e0b7be; }
+footer a:hover{ color:var(--crimson-deep); }
+footer .sitemap a{ color:#777; }
+footer .sitemap a:hover{ color:var(--crimson); }
+.spotlight{ border-color:var(--crimson); outline-color:var(--crimson); background:#faf8f4; }
+.spotlight h4{ color:var(--crimson); }
+.spotlight p{ color:#444; }
+.spotlight .who{ color:#888; }
+.news{ border:1px solid #e3dcd2; background:#fff; }
+.news .date{ color:var(--crimson); }
+.news h4{ color:#222; }
+.news p{ color:#555; }
+.news a.more{ color:var(--crimson); border-bottom-color:#e0b7be; }
+.events li{ border-bottom-color:#eee; }
+.events .when{ color:var(--crimson); }
+.events .what{ color:#444; }
+.events .what b{ color:#222; }
+.era{ border-bottom-color:#eee; }
+.era .years{ color:var(--crimson); }
+.era h4{ color:#222; }
+.era p{ color:#555; }
+.bio{ border:1px solid #e3dcd2; background:#fff; }
+.bio .glyph{ color:var(--crimson); text-shadow:none; }
+.bio h4{ color:var(--crimson); }
+.bio .role{ color:#888; }
+.bio p{ color:#555; }
+.chapter-row{ border-bottom-color:#eee; }
+.chapter-row .chname{ color:var(--crimson); }
+.chapter-row .chinfo{ color:#555; }
+.chapter-row .chinfo .yr{ color:#999; }
+.chapter-row.home{ background:#faf3f4; }
+.chapter-row.home .chname{ color:var(--crimson-deep); }
+.note{ color:#999; }
+.slideshow{ border-color:var(--crimson); outline-color:var(--crimson); }
+.slide-glyph{ color:rgba(166,25,46,.14); }
+.slide-arrow{ border-color:var(--crimson); background:rgba(255,255,255,.85); color:var(--crimson); }
+.slide-arrow:hover{ background:var(--crimson); color:#fff; }
+.slide-dots .dot{ border-color:var(--crimson); }
+.slide-dots .dot.active{ background:var(--crimson); }
+.slide-dots .dot:hover{ background:#d2687a; }
+.slide-kicker{ color:#f3c4cd; }
+.emblem{ border-color:var(--crimson); outline-color:var(--crimson); color:var(--crimson); background:#fff; text-shadow:none; }
+.news-src{ color:#999; }
+.news-src a{ color:var(--crimson); }
+.crestmid, .crestlogo{ border-color:#e0b7be; box-shadow:0 6px 18px rgba(0,0,0,.12); }
+
+/* new homepage sections mirroring deltasigmatheta.org */
+.theme-band{ text-align:center; padding:40px 0 10px; }
+.theme-title{ font-family:Cinzel,serif; font-weight:700; font-size:clamp(22px,3.6vw,32px); letter-spacing:.14em; color:var(--crimson); text-transform:uppercase; margin:0; }
+.theme-sub{ font-family:Cinzel,serif; font-size:13px; letter-spacing:.34em; color:#888; text-transform:uppercase; margin-top:10px; }
+.motto-sec{ max-width:820px; margin:0 auto; text-align:center; }
+.motto{ font-family:Cinzel,serif; font-size:clamp(16px,2.4vw,22px); letter-spacing:.3em; color:var(--crimson); text-transform:uppercase; margin:0 0 18px; }
+.motto-sec p{ font-size:18px; line-height:1.7; color:#444; }
+.pillars{ display:flex; justify-content:center; gap:28px 56px; flex-wrap:wrap; padding:20px 0 30px; }
+.pillar{ text-align:center; }
+.pillar-ring{ display:flex; align-items:center; justify-content:center; width:74px; height:74px; margin:0 auto 10px; border:2px solid var(--crimson); border-radius:50%; font-size:28px; }
+.pillar-name{ font-family:Cinzel,serif; font-size:12px; letter-spacing:.3em; color:var(--crimson); text-transform:uppercase; }
+.greeting{ max-width:760px; margin:20px auto; text-align:center; background:var(--paper-soft); padding:44px 34px; }
+.greet-head{ font-family:Cinzel,serif; color:var(--crimson); font-size:clamp(19px,3vw,26px); margin:0 0 16px; }
+.greeting p{ font-size:18px; line-height:1.7; color:#444; }
+.greeting .sig{ font-style:italic; font-size:17px; color:#777; margin-top:22px; }
+.greeting .sig-name{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:34px; color:var(--crimson); }
+.greeting .sig-role{ font-family:Cinzel,serif; font-size:11px; letter-spacing:.34em; color:#888; text-transform:uppercase; margin-top:6px; }
+.quick-links{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+.qlink{ border:1px solid #e3dcd2; background:#fff; padding:26px 22px; text-align:center; }
+.qlink h4{ font-family:Cinzel,serif; font-size:14px; letter-spacing:.2em; color:var(--crimson); text-transform:uppercase; margin:0 0 10px; }
+.qlink p{ font-size:16px; color:#555; margin:0 0 16px; line-height:1.55; }
+.qlink .btn{ padding:11px 22px; font-size:11px; }
+.stats{ display:flex; justify-content:center; gap:30px 70px; flex-wrap:wrap; text-align:center; padding:30px 0; }
+.stat .num{ font-family:Cinzel,serif; font-weight:700; font-size:clamp(30px,5vw,44px); color:var(--crimson); }
+.stat .lbl{ font-family:Cinzel,serif; font-size:11px; letter-spacing:.3em; color:#888; text-transform:uppercase; margin-top:6px; }
+.action{ text-align:center; }
+.action h3{ font-family:Cinzel,serif; font-size:clamp(20px,3.2vw,28px); letter-spacing:.16em; color:var(--crimson); text-transform:uppercase; margin:0 0 14px; }
+.action p{ max-width:640px; margin:0 auto 22px; font-size:18px; line-height:1.7; color:#444; }
+.events-note{ text-align:center; font-style:italic; color:#999; margin-top:26px; }
