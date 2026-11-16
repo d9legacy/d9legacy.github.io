@@ -11,6 +11,7 @@
     "ΙΦΘ": { name: "Iota Phi Theta", password: "SilverCentaur1963" }
   };
   const additionalOwnerPasswords = {
+    "ΩΨΦ": { name: "Josh", password: "JoshOmega1911" },
     "ΔΣΘ": { name: "Kinte", password: "KinteDST1913" }
   };
   const sampleLetters = [
