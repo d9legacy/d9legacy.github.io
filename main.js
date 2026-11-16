@@ -14252,8 +14252,6 @@ Error generating stack: ` + i.message + `
     const [bday, setBday] = (0, import_react.useState)("");
     const [city, setCity] = (0, import_react.useState)("");
     const [school, setSchool] = (0, import_react.useState)("");
-    const [grownup, setGrownup] = (0, import_react.useState)("");
-    const [grownupContact, setGrownupContact] = (0, import_react.useState)("");
     const [talent, setTalent] = (0, import_react.useState)("");
     const [leader, setLeader] = (0, import_react.useState)("");
     const [heroMember, setHeroMember] = (0, import_react.useState)("");
@@ -14264,11 +14262,11 @@ Error generating stack: ` + i.message + `
     const [sent, setSent] = (0, import_react.useState)(false);
     const org = orgs.find((item) => item.letters === group) ?? null;
     const questions = org ? quizShuffled[org.letters] : [];
-    const ready = name.trim() !== "" && grade !== "" && why.trim() !== "" && org !== null && bring !== "" && promise !== "" && questions.every((_, i) => answers[i] !== void 0) && like !== "" && service.trim() !== "" && signed.trim() !== "" && bday.trim() !== "" && city.trim() !== "" && school.trim() !== "" && grownup.trim() !== "" && grownupContact.trim() !== "" && talent !== "" && leader.trim() !== "" && heroMember.trim() !== "" && motto.trim() !== "" && hours !== "" && heard !== "" && rules === "Yes, I agree";
+    const ready = name.trim() !== "" && grade !== "" && why.trim() !== "" && org !== null && bring !== "" && promise !== "" && questions.every((_, i) => answers[i] !== void 0) && like !== "" && service.trim() !== "" && signed.trim() !== "" && bday.trim() !== "" && city.trim() !== "" && school.trim() !== "" && talent !== "" && leader.trim() !== "" && heroMember.trim() !== "" && motto.trim() !== "" && hours !== "" && heard !== "" && rules === "Yes, I agree";
     const send = () => {
       if (!org) return;
       const score = questions.reduce((total, q2, i) => total + (answers[i] === q2.answer ? 1 : 0), 0);
-      const letter = { id: `letter-${Date.now()}`, name: name.trim().slice(0, 40), group: `${org.name} (${org.letters})`, why: why.trim().slice(0, 300), bring, grade, contact: contact.trim().slice(0, 60), promise, score, total: questions.length, sheet: { like, service: service.trim().slice(0, 200), signed: signed.trim().slice(0, 40), bday: bday.trim().slice(0, 30), city: city.trim().slice(0, 60), school: school.trim().slice(0, 80), grownup: grownup.trim().slice(0, 60), grownupContact: grownupContact.trim().slice(0, 60), talent, leader: leader.trim().slice(0, 200), heroMember: heroMember.trim().slice(0, 60), motto: motto.trim().slice(0, 120), hours, heard, rules }, date: (/* @__PURE__ */ new Date()).toLocaleString() };
+      const letter = { id: `letter-${Date.now()}`, name: name.trim().slice(0, 40), group: `${org.name} (${org.letters})`, why: why.trim().slice(0, 300), bring, grade, contact: contact.trim().slice(0, 60), promise, score, total: questions.length, sheet: { like, service: service.trim().slice(0, 200), signed: signed.trim().slice(0, 40), bday: bday.trim().slice(0, 30), city: city.trim().slice(0, 60), school: school.trim().slice(0, 80), talent, leader: leader.trim().slice(0, 200), heroMember: heroMember.trim().slice(0, 60), motto: motto.trim().slice(0, 120), hours, heard, rules }, date: (/* @__PURE__ */ new Date()).toLocaleString() };
       setLetters([letter, ...letters].slice(0, 15));
       setSent(true);
     };
@@ -14299,8 +14297,6 @@ Error generating stack: ` + i.message + `
             setBday("");
             setCity("");
             setSchool("");
-            setGrownup("");
-            setGrownupContact("");
             setTalent("");
             setLeader("");
             setHeroMember("");
@@ -14384,25 +14380,20 @@ Error generating stack: ` + i.message + `
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "4. What city do you live in?", value: city, onChange: setCity }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "5. What school do you go to?", value: school, onChange: setSchool })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "login-fields", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "6. What is the name of a grown-up who says you can join?", value: grownup, onChange: setGrownup }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "7. That grown-up's phone or email", value: grownupContact, onChange: setGrownupContact })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "We only ask about your grown-up so the owner knows a parent or guardian said yes." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: ["8. What are you best at?"] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: ["6. What are you best at?"] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": "What you are best at", children: ["Singing", "Stepping", "Drawing", "Sports", "Reading", "Helping others"].map((option) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { type: "button", className: "chip", "data-active": talent === option || void 0, onClick: () => setTalent(option), children: option }, option)) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "login-fields", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "9. Tell us about a time you were a leader", value: leader, onChange: setLeader }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "10. Which famous member inspires you, and why?", value: heroMember, onChange: setHeroMember }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "11. Write a motto you promise to live by", value: motto, onChange: setMotto })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "7. Tell us about a time you were a leader", value: leader, onChange: setLeader }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "8. Which famous member inspires you, and why?", value: heroMember, onChange: setHeroMember }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "9. Write a motto you promise to live by", value: motto, onChange: setMotto })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "12. How many hours a week can you help out?" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "10. How many hours a week can you help out?" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": "Hours a week", children: ["1 hour", "2-3 hours", "4 or more hours"].map((option) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { type: "button", className: "chip", "data-active": hours === option || void 0, onClick: () => setHours(option), children: option }, option)) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "13. How did you hear about D9Legacy?" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "11. How did you hear about D9Legacy?" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": "How did you hear", children: ["A friend", "My family", "School", "This website"].map((option) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { type: "button", className: "chip", "data-active": heard === option || void 0, onClick: () => setHeard(option), children: option }, option)) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "14. Do you agree to be kind, never haze, and always lift others up?" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "12. Do you agree to be kind, never haze, and always lift others up?" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": "Agree to the rules", children: ["Yes, I agree", "I need to read the rules again"].map((option) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { type: "button", className: "chip", "data-active": rules === option || void 0, onClick: () => setRules(option), children: option }, option)) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "login-fields", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "15. Sign your name", value: signed, onChange: setSigned }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "login-fields", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextField, { label: "13. Sign your name", value: signed, onChange: setSigned }) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Survey + this sheet are both needed to send your letter." })
         ] })
       ] }) : null,
@@ -14423,7 +14414,7 @@ Error generating stack: ` + i.message + `
         " Read each join letter, then accept or decline it."
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Letters from the join survey show up here when they are sent from this device. The two sample letters are just for practice." }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { children: all.map((l, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { number: i + 1, name: `${l.name} wants to join ${l.group}`, detail: `Grade: ${l.grade || "not said"}. Text at: ${l.contact || "not given"}. Why: ${l.why} Will bring: ${l.bring}. Promise: ${l.promise}. Quiz: ${l.score} out of ${l.total}. ${l.sheet ? `Sheet: likes ${l.sheet.like}; would help by: ${l.sheet.service}; signed ${l.sheet.signed}. From: ${l.sheet.city || "not said"}. Birthday: ${l.sheet.bday || "not said"}. School: ${l.sheet.school || "not said"}. Best at: ${l.sheet.talent || "not said"}. Leader story: ${l.sheet.leader || "not said"} Inspires them: ${l.sheet.heroMember || "not said"}. Motto: ${l.sheet.motto || "not said"} Hours a week: ${l.sheet.hours || "not said"}. Heard from: ${l.sheet.heard || "not said"}. Grown-up OK: ${l.sheet.grownup || "not said"} (${l.sheet.grownupContact || "no contact"}). Rules: ${l.sheet.rules || "not said"}.` : "Sheet: sample letter, none."} ${l.date}. Status: ${decisions[l.id] === "accepted" ? "Accepted" : decisions[l.id] === "declined" ? "Declined" : "Waiting"}.` }, l.id)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { children: all.map((l, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { number: i + 1, name: `${l.name} wants to join ${l.group}`, detail: `Grade: ${l.grade || "not said"}. Text at: ${l.contact || "not given"}. Why: ${l.why} Will bring: ${l.bring}. Promise: ${l.promise}. Quiz: ${l.score} out of ${l.total}. ${l.sheet ? `Sheet: likes ${l.sheet.like}; would help by: ${l.sheet.service}; signed ${l.sheet.signed}. From: ${l.sheet.city || "not said"}. Birthday: ${l.sheet.bday || "not said"}. School: ${l.sheet.school || "not said"}. Best at: ${l.sheet.talent || "not said"}. Leader story: ${l.sheet.leader || "not said"} Inspires them: ${l.sheet.heroMember || "not said"}. Motto: ${l.sheet.motto || "not said"} Hours a week: ${l.sheet.hours || "not said"}. Heard from: ${l.sheet.heard || "not said"}. Rules: ${l.sheet.rules || "not said"}.` : "Sheet: sample letter, none."} ${l.date}. Status: ${decisions[l.id] === "accepted" ? "Accepted" : decisions[l.id] === "declined" ? "Declined" : "Waiting"}.` }, l.id)) }),
       all.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "button-row", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "letter-name", children: l.name }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "primary", compact: true, disabled: decisions[l.id] === "accepted", onClick: () => setDecisions({ ...decisions, [l.id]: "accepted" }), children: "Accept" }),
