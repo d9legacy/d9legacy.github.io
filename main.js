@@ -14064,6 +14064,264 @@ Error generating stack: ` + i.message + `
     ...i % 2 === 0 ? [{ from: "Quiz coach", subject: "You passed the quiz!", body: `Great job learning about ${org.name}. Keep reading the fun facts and you will know everything.` }] : [{ from: "History corner", subject: "A fun fact for you", body: org.fact }]
   ]]));
   function Overview() {
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Callout, { title: "The Kids D9 was founded in 2026", tone: "note", children: "This kids site, The Kids D9, was founded in 2026 by Josh. Want to join a group? Fill out the join survey and the owner will read your letter." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "From the owner", heading: "Josh's own clubs", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "Josh found a love for creating stuff, so he decided to make a frat of his own! He founded it with his friend Skylar, but after a while some of the friends argued and went their separate ways. So Josh found new founding partners and kept on building. Then a sorority came too, so everyone could join the fun. These were the very first two clubs he ever made - his own clubs, made up just for fun. They are not part of the real Divine Nine." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "josh-rows", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Rows, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { name: "\u03A6\u039B\u039A Phi Lambda Kappa (PLK)", detail: "Josh's first frat, founded at Magnolia Crown University on October 10, 2026 at 12:33 with founding partners Ivory and Kacen. Their big idea: brothers lift each other up. Brothers stick together on good days and bad, do great in school, help each other out and have a ton of fun. They even have their own secret hand sign!" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { name: "\u0396\u039B\u03A6 Zeta Lambda Phi (ZLP)", detail: "Josh's first sorority, founded by Ivory at Magnolia Crown University on October 10, 2026 at 12:33 and led by president Golden Bird. Colors: black and gold. Motto: Sisters forever! Sisters are kind, show up for each other, do their best in school, and always have each other's backs." })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Photos, { label: "The school where Josh's clubs live", title: "Magnolia Crown University", items: [{ src: magnolia_crown_default, alt: "The Magnolia Crown University campus, with golden gates, a golden-domed hall and blooming magnolia trees" }] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Magnolia Crown University - the school where Josh's clubs PLK and ZLP were founded." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Photos, { label: "Howard University, where five of the nine began", title: "Howard University", items: [{ src: howard_default, alt: "Founders Library on the campus of Howard University" }] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Founders Library at Howard University. Five of the Divine Nine started here. Photo: Josh from Washington, D.C., CC BY 2.0, via Wikimedia Commons." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "The big idea", heading: "What are the Divine Nine?", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "The Divine Nine are nine Black fraternities (brotherhoods) and sororities (sisterhoods). College students started them between 1906 and 1963, at a time when many schools were unfair to Black students." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: 'Members promise to do well in school, help their communities and lift each other up, and that promise lasts their whole lives. Together the nine groups are called the National Pan-Hellenic Council. A writer named Lawrence Ross gave them the nickname "Divine Nine" in a 2001 book.' })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "In the order they began", heading: "Meet the nine", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "org-rows", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { numbered: true, children: orgs.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { number: org.number, name: `${org.name} (${org.letters})`, detail: `${org.nickname}. Founded ${org.founded} at ${org.place}. Colors: ${org.colors}. ${org.fact}` }, org.letters)) }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "Spot them at a step show", heading: "Their colors", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "swatches", children: orgs.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "swatch", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "swatch-colors", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { background: org.swatches[0] } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { background: org.swatches[1] } })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "swatch-name", children: org.nickname.replace(/^the /, "") }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "swatch-detail", children: org.colors })
+      ] }, org.letters)) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "The campuses where it all started", heading: "Where they began", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Photos, { layout: "strip", title: "Founding campuses", items: [
+          { src: cornell_default, alt: "Cornell University, where Alpha Phi Alpha began" },
+          { src: indiana_default, alt: "Sample Gates at Indiana University, where Kappa Alpha Psi began" },
+          { src: butler_default, alt: "Jordan Hall at Butler University, where Sigma Gamma Rho began" },
+          { src: morgan_default, alt: "Holmes Hall at Morgan State University, where Iota Phi Theta began" }
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Cornell University, Indiana University, Butler University and Morgan State University. Photos: Andrew Parmet (CC BY 3.0), IT Communications Office (CC BY 2.0), Peetlesnumber1 (CC BY-SA 3.0) and Baltimore Heritage (CC0), via Wikimedia Commons." })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "People you might know", heading: "Famous members", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { children: famous.map((person) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { name: person.name, detail: person.detail }, person.name)) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "Fun facts", heading: "Did you know?", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bullets, { items: [
+        "Five of the nine were born at the same school: Howard University in Washington, DC.",
+        "The Divine Nine got their nickname from a book written in 2001, almost 100 years after the first group started.",
+        "Each group has its own call, hand sign and step moves that members learn.",
+        "Zeta Phi Beta and Phi Beta Sigma are officially linked as sister and brother groups, the only pair like that.",
+        "You usually join in college, but membership is for life. Grandparents can be in the same group as their grandkids."
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "Say it like a pro", heading: "Say their names", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { children: pronunciations.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { name: `${org.name} (${org.letters})`, detail: org.say }, org.letters)) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "Next stop", heading: true, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "Ready to join? Fill out the join survey. It has your group's quiz questions and sheet inside it." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "button-row", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, { className: "file-button is-compact", "data-variant": "secondary", to: "/survey", children: "Join survey" }) })
+      ] })
+    ] });
+  }
+  var orgSlug = (org) => org.name.toLowerCase().replace(/\s+/g, "-");
+  var siteUrl = "https://d9legacy.github.io/#";
+  function JoinPicker() {
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "The join quiz", heading: "Which sorority or fraternity would you like to join?", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "Pick your favorite below and it opens in a brand new tab - that group's very own page, where you answer five questions about it and then fill out the join survey. Get them all right and you are ready to join!" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": "Pick a group", children: orgs.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { className: "chip", href: `${siteUrl}/join/${orgSlug(item)}`, target: "_blank", rel: "noopener", children: [
+        item.name,
+        " (",
+        item.letters,
+        ")"
+      ] }, item.letters)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: `If a tap does not open the new tab, press and hold the group's name, then choose "Open in New Tab".` })
+    ] }) });
+  }
+  function OrgQuiz({ org, letters, setLetters, saved }) {
+    const questions = quizShuffled[org.letters];
+    const [answers, setAnswers] = (0, import_react.useState)(questions.map(() => null));
+    const [step, setStep] = (0, import_react.useState)(0);
+    const [done, setDone] = (0, import_react.useState)(false);
+    const [scoreRevealed, setScoreRevealed] = (0, import_react.useState)(false);
+    const score = questions.reduce((total, q2, i) => total + (answers[i] === q2.answer ? 1 : 0), 0);
+    const reset = () => {
+      setAnswers(questions.map(() => null));
+      setStep(0);
+      setDone(false);
+      setScoreRevealed(false);
+    };
+    const current = questions[step] ?? null;
+    const currentAnswer = answers[step] ?? null;
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "org-hero", style: { "--org-a": org.swatches[0], "--org-b": org.swatches[1] }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "org-hero-letters", children: org.letters }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "org-hero-name", children: org.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "org-hero-tag", children: [
+          "You made it! This is ",
+          org.nickname,
+          "' own page - a whole new page, just for them."
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: `Join ${org.nickname}`, heading: `${org.name} (${org.letters})`, children: [
+        !done && current && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
+            "Step 1: answer five questions about ",
+            org.nickname,
+            " right here on their page. Then Step 2 is the join survey and your letter."
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: [
+              org.name,
+              " (",
+              org.letters,
+              ")"
+            ] }),
+            " - question ",
+            step + 1,
+            " of ",
+            questions.length
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "quiz-question", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: current.question }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chips", role: "group", "aria-label": current.question, children: current.options.map((option, oi) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "button",
+              {
+                type: "button",
+                className: "chip",
+                "data-active": currentAnswer === oi || void 0,
+                onClick: () => {
+                  if (currentAnswer !== null) return;
+                  const next = [...answers];
+                  next[step] = oi;
+                  setAnswers(next);
+                },
+                children: option
+              },
+              oi
+            )) }),
+            currentAnswer !== null && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+              currentAnswer === current.answer ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { className: "quiz-right", children: "That is right!" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { className: "quiz-wrong", children: [
+                'Not quite - the answer is "',
+                current.options[current.answer],
+                '". You will remember it next time!'
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "button-row", children: step + 1 < questions.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "primary", compact: true, onClick: () => setStep(step + 1), children: "Next question" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "primary", compact: true, onClick: () => setDone(true), children: "See my score" }) })
+            ] })
+          ] })
+        ] }),
+        done && !scoreRevealed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "Quiz done", heading: "Your score is pending", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
+            "You finished the ",
+            org.name,
+            " quiz! Your answers are in and your score is pending - the owner is checking it."
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "Just for fun: the site already knows your score. Tap the button to see it. The join survey is right below." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "button-row", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "primary", compact: true, onClick: () => setScoreRevealed(true), children: "See my score" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, { className: "file-button is-compact", "data-variant": "ghost", to: "/join", children: "Pick another group" })
+          ] })
+        ] }) }),
+        done && scoreRevealed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "Your score", heading: `${score} out of ${questions.length}`, children: [
+          score === questions.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
+            "Perfect score! You know ",
+            org.nickname,
+            " well. You are ready for ",
+            org.name,
+            " one day!"
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "Good try! Read the answers below, then meet the nine again and retake the quiz." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { children: questions.map((q2, qi2) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { number: qi2 + 1, name: q2.question, detail: `${answers[qi2] === q2.answer ? "You got it right" : `You said "${q2.options[answers[qi2]]}"`}. Correct answer: ${q2.options[q2.answer]}.` }, qi2)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "button-row", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "secondary", compact: true, onClick: reset, children: "Try again" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, { className: "file-button is-compact", "data-variant": "ghost", to: "/join", children: "Pick another group" })
+          ] })
+        ] }) })
+      ] }),
+      done && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Survey, { letters, setLetters, saved, fixedOrg: org, quizAnswers: answers }, org.letters)
+    ] });
+  }
+  var sampleLetters = [
+    { id: "sample-1", name: "Maya (sample)", group: "Delta Sigma Theta (\u0394\u03A3\u0398)", why: "I want to help my community and learn to lead like Shirley Chisholm.", bring: "Kindness and a big smile", grade: "4th grade", promise: "Yes, I promise", score: 5, total: 5, date: "Sample letter" },
+    { id: "sample-2", name: "Jaylen (sample)", group: "Kappa Alpha Psi (\u039A\u0391\u03A8)", why: "I love stepping and I want to learn the canes.", bring: "Lots of energy", grade: "5th grade", promise: "Yes, I promise", score: 4, total: 5, date: "Sample letter" }
+  ];
+  var gradeOptions = ["Kindergarten", "1st grade", "2nd grade", "3rd grade", "4th grade", "5th grade", "6th grade", "7th grade or higher"];
+  var bringOptions = ["Kindness", "Good grades", "Step moves", "Big ideas", "Teamwork"];
+  function Survey({ letters, setLetters, saved, fixedOrg, quizAnswers }) {
+    const [name, setName] = (0, import_react.useState)("");
+    const [grade, setGrade] = (0, import_react.useState)("");
+    const [group, setGroup] = (0, import_react.useState)(fixedOrg?.letters ?? "");
+    const [why, setWhy] = (0, import_react.useState)("");
+    const [bring, setBring] = (0, import_react.useState)("");
+    const [promise, setPromise] = (0, import_react.useState)("");
+    const [contact, setContact] = (0, import_react.useState)("");
+    const [localAnswers, setAnswers] = (0, import_react.useState)({});
+    const answers = fixedOrg && quizAnswers ? Object.fromEntries(quizAnswers.map((a, i) => [i, a]).filter(([, a]) => a !== null)) : localAnswers;
+    const [like, setLike] = (0, import_react.useState)("");
+    const [service, setService] = (0, import_react.useState)("");
+    const [signed, setSigned] = (0, import_react.useState)("");
+    const [bday, setBday] = (0, import_react.useState)("");
+    const [city, setCity] = (0, import_react.useState)("");
+    const [school, setSchool] = (0, import_react.useState)("");
+    const [talent, setTalent] = (0, import_react.useState)("");
+    const [leader, setLeader] = (0, import_react.useState)("");
+    const [heroMember, setHeroMember] = (0, import_react.useState)("");
+    const [motto, setMotto] = (0, import_react.useState)("");
+    const [hours, setHours] = (0, import_react.useState)("");
+    const [heard, setHeard] = (0, import_react.useState)("");
+    const [rules, setRules] = (0, import_react.useState)("");
+    const [dateStr, setDateStr] = (0, import_react.useState)("");
+    const [sent, setSent] = (0, import_react.useState)(false);
+    const org = orgs.find((item) => item.letters === group) ?? null;
+    const questions = org ? quizShuffled[org.letters] : [];
+    const ready = name.trim() !== "" && grade !== "" && why.trim() !== "" && org !== null && bring !== "" && promise !== "" && questions.every((_, i) => answers[i] !== void 0) && like !== "" && service.trim() !== "" && signed.trim() !== "" && bday.trim() !== "" && city.trim() !== "" && school.trim() !== "" && talent !== "" && leader.trim() !== "" && heroMember.trim() !== "" && motto.trim() !== "" && hours !== "" && heard !== "" && rules === "Yes, I agree" && dateStr.trim() !== "";
+    const send = () => {
+      if (!org) return;
+      const score = questions.reduce((total, q2, i) => total + (answers[i] === q2.answer ? 1 : 0), 0);
+      const letter = { id: `letter-${Date.now()}`, name: name.trim().slice(0, 40), group: `${org.name} (${org.letters})`, why: why.trim().slice(0, 300), bring, grade, contact: contact.trim().slice(0, 60), promise, score, total: questions.length, sheet: { like, service: service.trim().slice(0, 200), signed: signed.trim().slice(0, 40), bday: bday.trim().slice(0, 30), city: city.trim().slice(0, 60), school: school.trim().slice(0, 80), talent, leader: leader.trim().slice(0, 200), heroMember: heroMember.trim().slice(0, 60), motto: motto.trim().slice(0, 120), hours, heard, rules, formDate: dateStr.trim().slice(0, 30) }, date: (/* @__PURE__ */ new Date()).toLocaleString() };
+      setLetters([letter, ...letters].slice(0, 15));
+      setSent(true);
+    };
+    const jsx = import_jsx_runtime.jsx;
+    const jsxs = import_jsx_runtime.jsxs;
+    const Fragment = import_jsx_runtime.Fragment;
+    const blank = (label, value, setter, wide) => /* @__PURE__ */ jsxs("div", { className: wide ? "blank is-wide" : "blank", children: [
+      /* @__PURE__ */ jsx("input", { value, onChange: (e) => setter(e.target.value), "aria-label": label, maxLength: 120 }),
+      /* @__PURE__ */ jsx("span", { className: "blank-label", children: label })
+    ] });
+    const chipRow = (label, options, value, setter, ariaLabel, labels) => /* @__PURE__ */ jsxs("div", { className: "doc-field", children: [
+      /* @__PURE__ */ jsx("p", { className: "doc-q", children: label }),
+      /* @__PURE__ */ jsx("div", { className: "chips", role: "group", "aria-label": ariaLabel || label, children: options.map((option, oi) => /* @__PURE__ */ jsx("button", { type: "button", className: "chip", "data-active": value === option || void 0, onClick: () => setter(option), children: labels ? labels[oi] : option }, option)) })
+    ] });
+    if (sent) {
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "Letter sent", heading: "Your letter is in the owner inbox!", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Paragraph, { children: [
+          "Thank you, ",
+          name.trim(),
+          "! Your join letter for ",
+          org?.name,
+          " is now waiting in the owner inbox. The owner will read it and decide whether to accept it."
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Caption, { children: "This pretend mailbox lives on this device. The owner sees the letter when he opens the owner inbox on the same device." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "button-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileButton, { variant: "secondary", compact: true, onClick: () => {
+            setSent(false);
+            setName("");
+            setGrade("");
+            setContact("");
+            setGroup(fixedOrg?.letters ?? "");
+            setWhy("");
+            setBring("");
+            setPromise("");
+            setAnswers({});
+            setLike("");
+            setService("");
+            setSigned("");
+            setBday("");
+            setCity("");
+            setSchool("");
+            setTalent("");
+            setLeader("");
+            setHeroMember("");
+            setMotto("");
+            setHours("");
+            setHeard("");
+            setRules("");
+            setDateStr("");
+          }, children: "Write another letter" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, { className: "file-button is-compact", "data-variant": "ghost", to: "/", children: "Back to the nine" })
+        ] })
+      ] });
+    }
     return /* @__PURE__ */ jsxs(Fragment, { children: [
       /* @__PURE__ */ jsx(Paragraph, { children: fixedOrg ? `Great job on the quiz! Now fill out the form below to ask to join ${fixedOrg.name}. It looks like a real official form - neat, huh?` : "Fill out the form below to ask to join a chapter. It looks like a real official form - neat, huh? Your finished form goes to the owner inbox, and the owner decides which letters to accept." }),
       /* @__PURE__ */ jsxs("div", { className: "doc", children: [
@@ -14100,7 +14358,7 @@ Error generating stack: ` + i.message + `
           setGroup(letters);
           setAnswers({});
           setLike("");
-        }, "Pick a chapter to join"),
+        }, "Pick a chapter to join", orgs.map((item) => `${item.name} (${item.letters})`)),
         fixedOrg ? null : org ? /* @__PURE__ */ jsx("div", { className: "doc-quiz", children: questions.map((q2, qi2) => /* @__PURE__ */ jsxs("div", { className: "quiz-question", children: [
           /* @__PURE__ */ jsxs("p", { className: "doc-q", children: [
             `Quiz ${qi2 + 1} of 5: `,
