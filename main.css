@@ -565,3 +565,5 @@ body {
 .blank-row.is-sign .blank input {
   font-style: italic;
 }
+.doc-guidelines ol { list-style: decimal; }
+.doc-guidelines li { padding-left: 4px; }
