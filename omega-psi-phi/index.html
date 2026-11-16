@@ -54,6 +54,65 @@
     </div>
   </section>
 
+  <section class="slideshow-sec" id="slideshow" aria-label="Omega highlights slideshow">
+    <div class="slideshow" id="opp-slides">
+
+      <div class="slide active" style="--slide-a:#2a1245;--slide-b:#150826">
+        <div class="slide-glyph">&#937;&#936;&#934;</div>
+        <div class="slide-inner">
+          <div class="slide-kicker">November 17</div>
+          <h3 class="slide-title">Omega Turns 115!</h3>
+          <p class="slide-text">Founders Day is here. In 1911, three students and their teacher started something special at Howard University - and the D9Legacy chapter is celebrating with cake and a history quiz.</p>
+          <a class="btn slide-btn" href="history.html">Read the Story</a>
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-a:#3a1a5e;--slide-b:#1c0b32">
+        <div class="slide-glyph">&#9733;</div>
+        <div class="slide-inner">
+          <div class="slide-kicker">November 16 - 22</div>
+          <h3 class="slide-title">Achievement Week</h3>
+          <p class="slide-text">A whole week of celebrating big brains and big hearts. The D9Legacy chapter is honoring students who keep climbing - and helping others climb too.</p>
+          <a class="btn slide-btn" href="news.html">See the Events</a>
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-a:#2a1245;--slide-b:#0f0620">
+        <div class="slide-glyph">&#9998;</div>
+        <div class="slide-inner">
+          <div class="slide-kicker">College Scholarship Contest</div>
+          <h3 class="slide-title">Win Up to $2,000</h3>
+          <p class="slide-text">High school seniors: write a 700-750 word essay for the International Essay Contest and you could win college money. Sharpen those pencils!</p>
+          <a class="btn slide-btn" href="scholarship.html">How to Enter</a>
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-a:#33155a;--slide-b:#150826">
+        <div class="slide-glyph">&#128081;</div>
+        <div class="slide-inner">
+          <div class="slide-kicker">Love &bull; Cooper &bull; Coleman &bull; Just</div>
+          <h3 class="slide-title">Meet the Four Founders</h3>
+          <p class="slide-text">Three students and their professor dreamed up Omega on a Friday night in 1911. Get to know the four men who started it all.</p>
+          <a class="btn slide-btn" href="founders.html">Meet Them</a>
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-a:#2a1245;--slide-b:#190a2e">
+        <div class="slide-glyph">&#11088;</div>
+        <div class="slide-inner">
+          <div class="slide-kicker">From Langston Hughes to MJ</div>
+          <h3 class="slide-title">Famous Ques</h3>
+          <p class="slide-text">Poets, astronauts, doctors and basketball legends - Omega men have done amazing things for over a century. See who wore the purple and gold.</p>
+          <a class="btn slide-btn" href="famous.html">See the Legends</a>
+        </div>
+      </div>
+
+      <button class="slide-arrow prev" type="button" aria-label="Previous slide">&#8249;</button>
+      <button class="slide-arrow next" type="button" aria-label="Next slide">&#8250;</button>
+      <div class="slide-dots" role="tablist" aria-label="Choose slide"></div>
+    </div>
+  </section>
+
   <section id="spotlight">
     <div class="sec-title">
       <div class="over">Omega Spotlight</div>
@@ -276,5 +335,42 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var box = document.getElementById('opp-slides');
+  if(!box) return;
+  var slides = box.querySelectorAll('.slide');
+  var dotsBox = box.querySelector('.slide-dots');
+  var i = 0, timer = null, DELAY = 5000;
+  slides.forEach(function(_, n){
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'dot'; d.setAttribute('aria-label','Go to slide ' + (n+1));
+    d.addEventListener('click', function(){ go(n); restart(); });
+    dotsBox.appendChild(d);
+  });
+  var dots = dotsBox.querySelectorAll('.dot');
+  function paint(){
+    slides.forEach(function(s,n){ s.classList.toggle('active', n===i); });
+    dots.forEach(function(d,n){ d.classList.toggle('active', n===i); });
+  }
+  function go(n){ i = (n + slides.length) % slides.length; paint(); }
+  function next(){ go(i+1); }
+  function restart(){ clearInterval(timer); timer = setInterval(next, DELAY); }
+  box.querySelector('.slide-arrow.next').addEventListener('click', function(){ next(); restart(); });
+  box.querySelector('.slide-arrow.prev').addEventListener('click', function(){ go(i-1); restart(); });
+  box.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  box.addEventListener('mouseleave', restart);
+  var startX = null;
+  box.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  box.addEventListener('touchend', function(e){
+    if(startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 40){ dx < 0 ? next() : go(i-1); restart(); }
+    startX = null;
+  }, {passive:true});
+  paint(); restart();
+})();
+</script>
 </body>
 </html>

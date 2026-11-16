@@ -176,3 +176,28 @@
     .era .years{text-align:left}
     .chapter-row{grid-template-columns:1fr}
   }
+
+  /* homepage slideshow (oppf.org-style hero carousel) */
+  .slideshow-sec{padding:10px 0 46px}
+  .slideshow{position:relative;overflow:hidden;border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:5px;min-height:340px}
+  .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:44px 64px;opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s;
+    background:radial-gradient(900px 500px at 50% 0%, var(--slide-a,#2a1245) 0%, var(--slide-b,#150826) 70%)}
+  .slide.active{position:relative;opacity:1;visibility:visible}
+  .slide-glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Cinzel,serif;font-weight:900;font-size:clamp(120px,26vw,240px);color:rgba(123,63,242,.16);pointer-events:none;user-select:none}
+  .slide-inner{position:relative;max-width:640px}
+  .slide-kicker{font-family:Cinzel,serif;font-size:11px;letter-spacing:.44em;color:var(--purple-soft);text-transform:uppercase}
+  .slide-title{font-family:Cinzel,serif;font-weight:700;font-size:clamp(24px,4.4vw,40px);letter-spacing:.12em;color:var(--gold);margin:12px 0 0;text-transform:uppercase}
+  .slide-text{font-size:clamp(17px,2.4vw,20px);line-height:1.6;color:#ece1c6;margin:16px auto 0;max-width:560px}
+  .slide-btn{display:inline-block;margin-top:24px}
+  .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border:1px solid rgba(212,175,55,.6);background:rgba(20,8,36,.65);color:var(--gold-bright);font-size:26px;line-height:1;cursor:pointer}
+  .slide-arrow:hover{background:rgba(123,63,242,.35);color:#fff}
+  .slide-arrow.prev{left:12px}
+  .slide-arrow.next{right:12px}
+  .slide-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;gap:10px;justify-content:center;z-index:3}
+  .slide-dots .dot{width:11px;height:11px;padding:0;border:1px solid var(--gold);background:transparent;transform:rotate(45deg);cursor:pointer}
+  .slide-dots .dot.active{background:var(--gold)}
+  .slide-dots .dot:hover{background:var(--gold-bright)}
+  @media (max-width:720px){
+    .slide{padding:36px 54px}
+    .slideshow{min-height:380px}
+  }
