@@ -45,6 +45,7 @@
     <div class="kicker">Est. 1963</div>
     <img class="crest crestimg" src="crest.png" alt="The painted crest of Iota Phi Theta" width="320" height="173">
     <h2>IOTA PHI THETA</h2>
+    <div class="scriptline"><span id="d9-rot">Scholarship</span></div>
     <div class="tagline">&ldquo;Building A Tradition, Not Resting Upon One!&rdquo;</div>
     <div class="climb">Building a tradition, not resting upon one</div>
     <div class="cta-row">
@@ -131,19 +132,19 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Our Motto</h4>
         <p><span class="big">&ldquo;Building A Tradition, Not Resting Upon One!&rdquo;</span><br>The youngest of the Divine Nine doesn&rsquo;t coast on history - it builds new history, every single day.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="FIDELITY">
         <h4>Scholarship</h4>
         <p>Grades are a brick in the foundation. Iotas build with them daily.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="LEADERSHIP">
         <h4>Leadership</h4>
         <p>Don&rsquo;t wait to be picked - step up and build the thing yourself.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="CITIZENSHIP">
         <h4>Citizenship</h4>
         <p>Be a builder in your community: vote, volunteer, show up.</p>
       </div>
@@ -179,15 +180,15 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Iota Youth Alliance</h4>
         <p>Mentoring young people - especially young Black men - in leadership, school and life. Building the next generation.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="FIDELITY">
         <h4>Afya Njema</h4>
         <p>Iota&rsquo;s health program (the name means &ldquo;good health&rdquo; in Swahili): health fairs, screenings and honest talk about men&rsquo;s health.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="LEADERSHIP">
         <h4>Scholarship &amp; Academic Support</h4>
         <p>Chapters reward strong students with scholarships and recognition - bricks for the future.</p>
       </div>
@@ -235,32 +236,32 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="CITIZENSHIP">
         <h4>About Iota</h4>
         <p>The motto, what Iota stands for, and quick facts every fan should know.</p>
         <p class="mini"><a href="about.html" style="color:var(--gold-bright)">Read on</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Leadership</h4>
         <p>Meet the real national leaders of Iota Phi Theta and our own D9Legacy officers.</p>
         <p class="mini"><a href="leadership.html" style="color:var(--gold-bright)">Meet them</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="FIDELITY">
         <h4>Join Iota</h4>
         <p>How brothers really join - and how kids can start the journey now.</p>
         <p class="mini"><a href="membership.html" style="color:var(--gold-bright)">See the path</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="LEADERSHIP">
         <h4>Scholarship</h4>
         <p>Real money and real programs that help students keep climbing.</p>
         <p class="mini"><a href="scholarship.html" style="color:var(--gold-bright)">Learn how</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="CITIZENSHIP">
         <h4>FAQ</h4>
         <p>What do the letters mean? What are the colors? Can kids join? Every answer, plain and simple.</p>
         <p class="mini"><a href="faq.html" style="color:var(--gold-bright)">Get answers</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Policies &amp; Contact</h4>
         <p>The rule book (zero hazing, ever) and how to reach headquarters and our chapter.</p>
         <p class="mini"><a href="policies.html" style="color:var(--gold-bright)">Policies</a></p>
@@ -364,6 +365,30 @@
     startX = null;
   }, {passive:true});
   paint(); restart();
+})();
+</script>
+<script>
+(function(){
+  var words = ["Scholarship", "Leadership", "Citizenship", "Fidelity", "Brotherhood"];
+  var el = document.getElementById('d9-rot');
+  if(!el) return;
+  var wi = 0;
+  setInterval(function(){
+    el.style.transition = 'opacity .4s ease, transform .4s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-34px)';
+    setTimeout(function(){
+      wi = (wi + 1) % words.length;
+      el.textContent = words[wi];
+      el.style.transition = 'none';
+      el.style.transform = 'translateX(34px)';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        el.style.transition = 'opacity .45s ease, transform .45s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+      }); });
+    }, 420);
+  }, 3200);
 })();
 </script>
 </body>

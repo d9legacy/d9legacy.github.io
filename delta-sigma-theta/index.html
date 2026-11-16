@@ -45,6 +45,7 @@
     <div class="kicker">Est. 1913</div>
     <img class="crest crestimg" src="crest.png" alt="The painted crest of Delta Sigma Theta" width="320" height="223">
     <h2>DELTA SIGMA THETA</h2>
+    <div class="scriptline"><span id="d9-rot">Sisterhood</span></div>
     <div class="tagline">&ldquo;Intelligence is the Torch of Wisdom&rdquo;</div>
     <div class="climb">Sisterhood, Scholarship, Service</div>
     <div class="cta-row">
@@ -131,19 +132,19 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="SISTERHOOD">
         <h4>Our Motto</h4>
         <p><span class="big">&ldquo;Intelligence is the Torch of Wisdom&rdquo;</span><br>Smart is powerful. Deltas use what they learn to light the way for everyone else.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>Economic Development</h4>
         <p>Helping families and neighborhoods learn about money, save smart, and build businesses that lift everybody up.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SOCIAL ACTION">
         <h4>Educational Development</h4>
         <p>Tutoring, mentoring and scholarships - because every kid deserves a fair shot at learning.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="FORTITUDE">
         <h4>International Awareness</h4>
         <p>Caring about people all over the world, not just next door. Deltas help communities across the globe.</p>
       </div>
@@ -179,15 +180,15 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="SISTERHOOD">
         <h4>Economic Development</h4>
         <p>Money smarts for everybody: classes on saving, budgeting, buying homes, and supporting Black-owned businesses.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>Educational Development</h4>
         <p>Tutoring, mentoring, and scholarships so every student can climb higher. School is the Delta love language.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SOCIAL ACTION">
         <h4>International Awareness</h4>
         <p>Helping communities around the world - from schools in Africa to clean water projects across the globe.</p>
       </div>
@@ -235,32 +236,32 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="FORTITUDE">
         <h4>About Delta</h4>
         <p>The motto, what Delta stands for, and quick facts every fan should know.</p>
         <p class="mini"><a href="about.html" style="color:var(--gold-bright)">Read on</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SISTERHOOD">
         <h4>Leadership</h4>
         <p>Meet the real national leaders of Delta Sigma Theta and our own D9Legacy officers.</p>
         <p class="mini"><a href="leadership.html" style="color:var(--gold-bright)">Meet them</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>Join Delta</h4>
         <p>How sorors really join - and how kids can start the journey now.</p>
         <p class="mini"><a href="membership.html" style="color:var(--gold-bright)">See the path</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SOCIAL ACTION">
         <h4>Scholarship</h4>
         <p>Real money and real programs that help students keep climbing.</p>
         <p class="mini"><a href="scholarship.html" style="color:var(--gold-bright)">Learn how</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="FORTITUDE">
         <h4>FAQ</h4>
         <p>What do the letters mean? What are the colors? Can kids join? Every answer, plain and simple.</p>
         <p class="mini"><a href="faq.html" style="color:var(--gold-bright)">Get answers</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SISTERHOOD">
         <h4>Policies &amp; Contact</h4>
         <p>The rule book (zero hazing, ever) and how to reach headquarters and our chapter.</p>
         <p class="mini"><a href="policies.html" style="color:var(--gold-bright)">Policies</a></p>
@@ -364,6 +365,30 @@
     startX = null;
   }, {passive:true});
   paint(); restart();
+})();
+</script>
+<script>
+(function(){
+  var words = ["Sisterhood", "Scholarship", "Service", "Social Action"];
+  var el = document.getElementById('d9-rot');
+  if(!el) return;
+  var wi = 0;
+  setInterval(function(){
+    el.style.transition = 'opacity .4s ease, transform .4s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-34px)';
+    setTimeout(function(){
+      wi = (wi + 1) % words.length;
+      el.textContent = words[wi];
+      el.style.transition = 'none';
+      el.style.transform = 'translateX(34px)';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        el.style.transition = 'opacity .45s ease, transform .45s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+      }); });
+    }, 420);
+  }, 3200);
 })();
 </script>
 </body>

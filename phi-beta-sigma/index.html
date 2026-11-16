@@ -45,6 +45,7 @@
     <div class="kicker">Est. 1914</div>
     <img class="crest crestimg" src="crest.png" alt="The painted crest of Phi Beta Sigma" width="320" height="202">
     <h2>PHI BETA SIGMA</h2>
+    <div class="scriptline"><span id="d9-rot">Brotherhood</span></div>
     <div class="tagline">&ldquo;Culture For Service and Service For Humanity&rdquo;</div>
     <div class="climb">Brotherhood, Scholarship, Service</div>
     <div class="cta-row">
@@ -131,19 +132,19 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="GOMAB">
         <h4>Our Motto</h4>
         <p><span class="big">&ldquo;Culture For Service and Service For Humanity&rdquo;</span><br>Learn everything you can - then spend it all on helping people.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Brotherhood</h4>
         <p>Three founders built a family where every member belongs - brothers for life.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SCHOLARSHIP">
         <h4>Scholarship</h4>
         <p>Sharp minds on purpose. Sigmas treat learning like training for the big game.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>Service</h4>
         <p>Service for humanity - not for show, not for credit. For people.</p>
       </div>
@@ -177,15 +178,15 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="GOMAB">
         <h4>Bigger and Better Business</h4>
         <p>Since the 1920s: helping Black-owned businesses start, grow and thrive. Money circulating in the community lifts everybody.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Education</h4>
         <p>Scholarships, tutoring and mentoring - plus the Sigma Beta Club, where young boys learn to be leaders.</p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SCHOLARSHIP">
         <h4>Social Action</h4>
         <p>Standing up for justice: voting rights, fair treatment, and speaking for people who aren&rsquo;t being heard.</p>
       </div>
@@ -233,32 +234,32 @@
       <div class="rule"></div>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>About Sigma</h4>
         <p>The motto, what Sigma stands for, and quick facts every fan should know.</p>
         <p class="mini"><a href="about.html" style="color:var(--gold-bright)">Read on</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="GOMAB">
         <h4>Leadership</h4>
         <p>Meet the real national leaders of Phi Beta Sigma and our own D9Legacy officers.</p>
         <p class="mini"><a href="leadership.html" style="color:var(--gold-bright)">Meet them</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="BROTHERHOOD">
         <h4>Join Sigma</h4>
         <p>How brothers really join - and how kids can start the journey now.</p>
         <p class="mini"><a href="membership.html" style="color:var(--gold-bright)">See the path</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SCHOLARSHIP">
         <h4>Scholarship</h4>
         <p>Real money and real programs that help students keep climbing.</p>
         <p class="mini"><a href="scholarship.html" style="color:var(--gold-bright)">Learn how</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="SERVICE">
         <h4>FAQ</h4>
         <p>What do the letters mean? What are the colors? Can kids join? Every answer, plain and simple.</p>
         <p class="mini"><a href="faq.html" style="color:var(--gold-bright)">Get answers</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-word="GOMAB">
         <h4>Policies &amp; Contact</h4>
         <p>The rule book (zero hazing, ever) and how to reach headquarters and our chapter.</p>
         <p class="mini"><a href="policies.html" style="color:var(--gold-bright)">Policies</a></p>
@@ -362,6 +363,30 @@
     startX = null;
   }, {passive:true});
   paint(); restart();
+})();
+</script>
+<script>
+(function(){
+  var words = ["Brotherhood", "Scholarship", "Service", "GOMAB!"];
+  var el = document.getElementById('d9-rot');
+  if(!el) return;
+  var wi = 0;
+  setInterval(function(){
+    el.style.transition = 'opacity .4s ease, transform .4s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-34px)';
+    setTimeout(function(){
+      wi = (wi + 1) % words.length;
+      el.textContent = words[wi];
+      el.style.transition = 'none';
+      el.style.transform = 'translateX(34px)';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        el.style.transition = 'opacity .45s ease, transform .45s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+      }); });
+    }, 420);
+  }, 3200);
 })();
 </script>
 </body>

@@ -179,3 +179,14 @@ footer .sitemap a:hover{color:#fff}
   .slide{padding:36px 54px}
   .slideshow{min-height:380px}
 }
+
+.news-src{text-align:center;font-style:italic;color:#8a6a6e;margin-top:20px;font-size:14.5px}
+.news-src a{color:var(--pink-deep)}
+
+.hero .scriptline span{display:inline-block;will-change:transform,opacity}
+
+/* hover word slide */
+.card{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,110,67,.14)}
+.card::after{content:attr(data-word);position:absolute;left:0;right:0;bottom:0;padding:8px 10px;text-align:center;background:var(--pink-deep);color:#fff;font-family:Poppins,sans-serif;font-weight:700;font-size:10px;letter-spacing:.28em;text-transform:uppercase;transform:translateY(110%);transition:transform .3s ease}
+.card:hover::after{transform:translateY(0)}

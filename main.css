@@ -425,3 +425,6 @@ body {
   margin: 0 auto 6px;
   display: block;
 }
+
+.support-line{margin-top:10px;font-size:15px}
+.support-line a{color:inherit;font-weight:700;text-decoration:underline}

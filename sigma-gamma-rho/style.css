@@ -62,9 +62,9 @@
   .hero .tagline{font-style:italic;font-size:clamp(19px,3vw,26px);color:var(--gold-bright);margin:18px 0 6px}
   .hero .climb{font-family:Cinzel,serif;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--purple-soft)}
   .cta-row{display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-  .btn{font-family:Cinzel,serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:15px 30px;border:2px solid var(--gold);color:var(--ink);background:linear-gradient(180deg,var(--gold-bright),var(--gold));font-weight:700}
+  .btn{font-family:Cinzel,serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:15px 30px;border:2px solid var(--gold);color:var(--ink);background:linear-gradient(180deg,var(--gold-bright),var(--gold));font-weight:700;transition:transform .18s ease,filter .18s ease}
   .btn.ghost{background:transparent;color:var(--gold-bright)}
-  .btn:hover{filter:brightness(1.12)}
+  .btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
 
   /* interior page banner */
   .page-hero{text-align:center;padding:52px 0 8px}
@@ -210,3 +210,15 @@
   .emblem.sm{width:84px;height:84px;font-size:20px;flex:none}
   .emblem.md{width:150px;height:150px;font-size:30px;margin:0 auto}
   .spotlight .emblem{max-width:200px;width:100%;aspect-ratio:1}
+
+  .news-src{text-align:center;font-style:italic;color:var(--gold-dim);margin-top:20px;font-size:15px}
+  .news-src a{color:var(--gold-bright)}
+
+  .hero .scriptline{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(28px,5vw,50px);color:var(--purple-soft);min-height:1.15em;line-height:1.12;margin:10px 0 0}
+  .hero .scriptline span{display:inline-block;will-change:transform,opacity}
+
+  /* hover word slide */
+  .card{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+  .card::after{content:attr(data-word);position:absolute;left:0;right:0;bottom:0;padding:8px 10px;text-align:center;background:linear-gradient(180deg,var(--purple),var(--purple-deep));color:var(--cream);font-family:Cinzel,serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;transform:translateY(110%);transition:transform .3s ease}
+  .card:hover::after{transform:translateY(0)}
