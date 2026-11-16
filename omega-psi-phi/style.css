@@ -41,7 +41,7 @@
 
   /* header */
   header.site{display:flex;align-items:center;gap:20px;padding:10px 8px 22px;border-bottom:1px solid rgba(212,175,55,.4)}
-  .crestimg{background:url(crest.svg) center/contain no-repeat}
+  .crestimg{background:url(crest.png) center/contain no-repeat}
   .crestlogo{width:84px;height:89px;flex:none}
   .brand small{display:block;font-family:Cinzel,serif;letter-spacing:.42em;font-size:10px;color:var(--purple-soft);text-transform:uppercase;margin-bottom:6px}
   .brand h1{margin:0;font-family:Cinzel,serif;font-weight:700;font-size:clamp(20px,3.4vw,30px);color:var(--gold);letter-spacing:.08em}
