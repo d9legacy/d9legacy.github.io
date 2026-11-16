@@ -14082,6 +14082,15 @@ Error generating stack: ` + i.message + `
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: 'Members promise to do well in school, help their communities and lift each other up, and that promise lasts their whole lives. Together the nine groups are called the National Pan-Hellenic Council. A writer named Lawrence Ross gave them the nickname "Divine Nine" in a 2001 book.' })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "In the order they began", heading: "Meet the nine", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "org-rows", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Rows, { numbered: true, children: orgs.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Row, { number: org.number, name: `${org.name} (${org.letters})`, detail: `${org.nickname}. Founded ${org.founded} at ${org.place}. Colors: ${org.colors}. ${org.fact}` }, org.letters)) }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Group, { label: "Visit the chapters", heading: "Our nine chapters", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Paragraph, { children: "Tap a chapter to visit its very own D9Legacy site. Each one is a fan-made kids chapter, not the official site." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "chapter-grid", children: orgs.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { className: "chapter-card", href: "./" + org.name.toLowerCase().replace(/ /g, "-") + "/", style: { borderTopColor: org.swatches[0], boxShadow: "inset 0 -4px 0 " + org.swatches[1] }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { className: "chapter-crest", src: "./" + org.name.toLowerCase().replace(/ /g, "-") + "/crest.png", alt: org.name + " crest", loading: "lazy" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "chapter-letters", children: org.letters }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "chapter-name", children: org.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "chapter-sub", children: "A D9Legacy chapter" })
+        ] }, org.letters)) })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Group, { label: "Spot them at a step show", heading: "Their colors", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "swatches", children: orgs.map((org) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "swatch", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "swatch-colors", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { background: org.swatches[0] } }),
