@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 530" width="500" height="530">
+<defs><path id="lf" d="M0,0 Q10,-8 30,-2 Q10,6 0,0 Z" fill="#2e7d32" stroke="#1b5e20" stroke-width="1"/><path id="lf2" d="M0,0 Q10,-8 30,-2 Q10,6 0,0 Z" fill="#43a047" stroke="#1b5e20" stroke-width="1"/><polygon id="st" points="0,-9 2.4,-2.8 9,-2.8 3.6,1.2 5.6,7.8 0,3.8 -5.6,7.8 -3.6,1.2 -9,-2.8 -2.4,-2.8" fill="#d4af37"/><g id="sw"><path d="M246,30 L250,12 L254,30 L254,360 L246,360 Z" fill="#c0c5ce" stroke="#8a8f99" stroke-width="1.5"/><rect x="224" y="360" width="52" height="9" rx="4" fill="#d4af37" stroke="#8a6d1f" stroke-width="1.2"/><rect x="244" y="369" width="12" height="42" rx="5" fill="#e7c25a" stroke="#8a6d1f" stroke-width="1.2"/><circle cx="250" cy="418" r="9" fill="#d4af37" stroke="#8a6d1f" stroke-width="1.2"/></g></defs>
+<use href="#sw" transform="rotate(-38 250 240)"/><use href="#sw" transform="rotate(38 250 240)"/>
+<use href="#lf" transform="translate(382,364) rotate(336)"/>
+<use href="#lf2" transform="translate(401,331) rotate(322)"/>
+<use href="#lf" transform="translate(413,296) rotate(307)"/>
+<use href="#lf2" transform="translate(418,258) rotate(292)"/>
+<use href="#lf" transform="translate(415,220) rotate(278)"/>
+<use href="#lf2" transform="translate(404,184) rotate(264)"/>
+<use href="#lf" transform="translate(387,151) rotate(249)"/>
+<use href="#lf2" transform="translate(363,122) rotate(234)"/>
+<use href="#lf" transform="translate(334,100) rotate(220)"/>
+<use href="#lf2" transform="translate(301,84) rotate(206)"/>
+<use href="#lf" transform="translate(266,77) rotate(191)"/>
+<use href="#lf2" transform="translate(230,77) rotate(176)"/>
+<use href="#lf" transform="translate(195,86) rotate(162)"/>
+<use href="#lf2" transform="translate(163,102) rotate(148)"/>
+<use href="#lf" transform="translate(134,125) rotate(133)"/>
+<use href="#lf2" transform="translate(111,154) rotate(118)"/>
+<use href="#lf" transform="translate(94,187) rotate(104)"/>
+<use href="#lf" transform="translate(118,364) rotate(100)"/>
+<use href="#lf2" transform="translate(99,331) rotate(90)"/>
+<use href="#lf" transform="translate(87,296) rotate(80)"/>
+<use href="#lf2" transform="translate(82,258) rotate(70)"/>
+<use href="#lf" transform="translate(85,220) rotate(60)"/>
+<use href="#lf2" transform="translate(96,184) rotate(50)"/>
+<use href="#lf" transform="translate(113,151) rotate(40)"/>
+<use href="#lf2" transform="translate(137,122) rotate(30)"/>
+<use href="#lf" transform="translate(166,100) rotate(20)"/>
+<use href="#lf2" transform="translate(199,84) rotate(10)"/>
+<use href="#lf" transform="translate(234,77) rotate(0)"/>
+<use href="#lf2" transform="translate(270,77) rotate(-10)"/>
+<use href="#lf" transform="translate(305,86) rotate(-20)"/>
+<use href="#lf2" transform="translate(337,102) rotate(-30)"/>
+<use href="#lf" transform="translate(366,125) rotate(-40)"/>
+<use href="#lf2" transform="translate(389,154) rotate(-50)"/>
+<use href="#lf" transform="translate(406,187) rotate(-60)"/>
+<path d="M250,370 C180,310 141,280 135,230 L135,130 Q135,116 149,116 L351,116 Q365,116 365,130 L365,230 C359,280 320,310 250,370 Z" fill="#3d1a66" stroke="#d4af37" stroke-width="7"/>
+<path d="M250,370 C180,310 141,280 135,230 L135,130 Q135,116 149,116 L351,116 Q365,116 365,130 L365,230 C359,280 320,310 250,370 Z" fill="none" stroke="#d4af37" stroke-width="2" transform="translate(250,240) scale(0.92) translate(-250,-240)"/>
+<use href="#st" x="157" y="160"/>
+<use href="#st" x="157" y="191"/>
+<use href="#st" x="157" y="222"/>
+<use href="#st" x="159" y="252"/>
+<use href="#st" x="171" y="283"/>
+<use href="#st" x="192" y="314"/>
+<use href="#st" x="343" y="160"/>
+<use href="#st" x="343" y="191"/>
+<use href="#st" x="343" y="222"/>
+<use href="#st" x="341" y="252"/>
+<use href="#st" x="329" y="283"/>
+<use href="#st" x="308" y="314"/>
+<use href="#st" x="204" y="160"/>
+<use href="#st" x="250" y="160"/>
+<use href="#st" x="296" y="160"/>
+<text x="250" y="262" text-anchor="middle" font-family="Georgia,serif" font-size="62" font-weight="bold" fill="#e7c25a" stroke="#8a6d1f" stroke-width="0.8">&#937;&#936;&#934;</text>
+<g fill="none" stroke="#e7c25a" stroke-width="3.2"><path d="M228,306 Q226,320 242,322 L260,322 Q276,320 274,306 Q280,298 288,304 L286,309 Q278,305 272,310"/><path d="M228,306 Q220,294 212,300"/><ellipse cx="250" cy="306" rx="23" ry="6"/><line x1="244" y1="326" x2="258" y2="326" stroke-width="3.4"/></g><path d="M216,296 Q214,286 219,282 Q216,290 220,293 Z" fill="#e7c25a"/>
+<g><path d="M258,68 Q290,70 292,100 L292,140 L272,140 L270,100 Z" fill="#9aa0ab" stroke="#6d7280" stroke-width="2"/><path d="M258,66 Q218,66 216,104 L216,140 L258,140 Z" fill="#c0c5ce" stroke="#6d7280" stroke-width="2"/><path d="M216,110 L242,110 L242,136 L216,136 Z" fill="#4a4f5c"/><path d="M220,113 L220,133 M226,113 L226,133 M232,113 L232,133 M238,113 L238,133" stroke="#c0c5ce" stroke-width="2.6"/><path d="M252,66 Q254,40 286,42 Q300,44 306,58 Q286,50 266,56 Q258,60 258,68 Z" fill="#7b3ff2" stroke="#5a21b6" stroke-width="1.5"/></g>
+<path d="M122,366 L378,366 L362,385 L378,404 L122,404 L138,385 Z" fill="#d4af37" stroke="#8a6d1f" stroke-width="2"/><text x="250" y="394" text-anchor="middle" font-family="Georgia,serif" font-size="25" font-weight="bold" fill="#3d1a66" letter-spacing="2">EST. 1911</text>
+</svg>
