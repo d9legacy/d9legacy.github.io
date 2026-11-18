@@ -37,10 +37,10 @@ nav.main a.here{color:var(--pink-deep);border-color:var(--pink)}
 .hero h2{font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(19px,3.4vw,30px);letter-spacing:.14em;color:#fff;margin:16px 0 0;text-transform:uppercase}
 .hero .tagline{font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.8vw,24px);color:var(--pink-soft);margin:14px 0 4px}
 .hero .climb{font-family:Poppins,sans-serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#a9d8be}
-.hero .crest{width:min(280px,62vw);height:auto;margin:18px auto 4px;border-radius:18px;border:3px solid var(--pink);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.hero .crest{width:min(260px,54vw);height:auto;margin:18px auto 4px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.45))}
 .crestimg{display:block;object-fit:contain}
-.crestlogo{height:64px;width:auto;flex:none;border-radius:12px;border:2px solid var(--pink);box-shadow:0 4px 14px rgba(13,59,35,.28)}
-.crestmid{width:150px;height:auto;margin:0 auto;border-radius:14px;border:2px solid var(--pink);box-shadow:0 8px 24px rgba(13,59,35,.18)}
+.crestlogo{height:64px;width:auto;flex:none;filter:drop-shadow(0 3px 8px rgba(13,59,35,.3))}
+.crestmid{width:150px;height:auto;margin:0 auto;filter:drop-shadow(0 6px 16px rgba(13,59,35,.25))}
 .cta-row{display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap}
 .btn{font-family:Poppins,sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:14px 28px;border:2px solid var(--pink);color:#fff;background:var(--pink-deep);font-weight:700;border-radius:999px;transition:transform .15s ease}
 .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.75)}
