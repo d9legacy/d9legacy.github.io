@@ -346,11 +346,22 @@ footer .sitemap a:hover{ color:var(--crimson); }
 .action p{ max-width:640px; margin:0 auto 22px; font-size:18px; line-height:1.7; color:#444; }
 .events-note{ text-align:center; font-style:italic; color:#999; margin-top:26px; }
 
-/* interest rule book */
-.rulebook-sec .rb-intro{ max-width:720px; margin:0 auto 30px; text-align:center; font-size:18px; line-height:1.7; color:#444; }
-.rulebook{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
-.rb-rule{ border:1px solid #e3dcd2; border-left:4px solid var(--crimson); background:#fff; padding:18px 20px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
-.rb-rule .rb-num{ font-family:Cinzel,serif; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--crimson); display:block; margin-bottom:8px; }
-.rb-rule p{ margin:0; font-size:16px; line-height:1.55; color:#444; }
-.rb-rule p b{ color:#222; }
-.rb-close{ max-width:680px; margin:28px auto 0; text-align:center; font-style:italic; font-size:17px; color:#777; }
+/* interest rule book - formal document */
+.rb-doc{ max-width:860px; margin:0 auto; background:#fffdf6; color:#262626; padding:clamp(28px,5vw,60px) clamp(22px,6vw,72px); border:1px solid #d8cbae; box-shadow:0 18px 50px rgba(0,0,0,.5); font-size:18px; line-height:1.65; }
+.rb-hr{ border:0; border-top:1px solid #b7a87f; margin:18px 0 22px; }
+.rb-hr.double{ border-top:3px double #b7a87f; margin:0 0 26px; }
+.rb-doc-org{ font-family:Cinzel,serif; font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:#8a7a52; text-align:center; }
+.rb-doc-title{ font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-style:italic; font-size:clamp(30px,5vw,44px); color:#7d1221; text-align:center; margin:14px 0 8px; }
+.rb-doc-sub{ text-align:center; font-style:italic; font-size:17px; color:#5a5344; }
+.rb-preamble{ margin:0 0 22px; }
+.rb-em{ font-style:italic; }
+ol.rb-clauses{ margin:0 0 22px; padding-left:1.4em; }
+ol.rb-clauses > li{ margin:0 0 14px; padding-left:.5em; }
+ol.rb-clauses > li::marker{ font-weight:600; color:#7d1221; }
+.rb-close{ font-style:italic; color:#4c463a; margin:0 0 30px; }
+.rb-issue{ margin:0 0 30px; }
+.rb-issue-by{ font-family:Cinzel,serif; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8a7a52; }
+.rb-issue-name{ font-style:italic; font-weight:600; font-size:28px; color:#7d1221; margin:8px 0 2px; }
+.rb-issue-title{ font-size:15px; color:#5a5344; }
+.rb-issue-date{ font-size:15px; color:#5a5344; margin-top:2px; }
+.rb-doc-foot{ border-top:3px double #b7a87f; padding-top:10px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; font-size:14px; font-style:italic; color:#8a7a52; }
