@@ -12,21 +12,7 @@
     font-family:'Cormorant Garamond', Georgia, serif;
     min-height:100vh;
   }
-  /* ornate double gold frame around the whole page */
-  .frame{
-    position:fixed; inset:0; pointer-events:none; z-index:50;
-    border:3px solid var(--gold); margin:14px;
-    outline:1px solid var(--gold); outline-offset:6px;
-  }
-  .frame::before,.frame::after{
-    content:""; position:absolute; width:120px; height:120px;
-    background:
-      linear-gradient(135deg, transparent 46%, var(--gold) 46%, var(--gold) 47.5%, transparent 47.5%),
-      linear-gradient(135deg, transparent 55%, var(--gold) 55%, var(--gold) 56%, transparent 56%),
-      linear-gradient(135deg, transparent 63%, var(--gold) 63%, var(--gold) 63.5%, transparent 63.5%);
-  }
-  .frame::before{top:-3px;left:-3px}
-  .frame::after{bottom:-3px;right:-3px; transform:rotate(180deg)}
+  .frame{display:none}
 
   .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
 
@@ -170,7 +156,6 @@
   @media (max-width:720px){
     header.site{flex-direction:column;text-align:center}
     nav.main{margin:0;justify-content:center}
-    .frame{margin:8px}
     .topbar{justify-content:center;text-align:center}
     .spotlight{grid-template-columns:1fr;text-align:center}
     .era{grid-template-columns:1fr;gap:8px}
