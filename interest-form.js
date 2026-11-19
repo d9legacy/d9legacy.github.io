@@ -108,7 +108,7 @@ html,body{overflow-x:clip}
   document.head.appendChild(style);
 
   var state = {
-    name: "", bday: "", city: "", school: "", contact: "", grade: "",
+    name: "", contact: "", grade: "",
     answers: {}, why: "", bring: "", like: "", service: "",
     interests: [], consider: "", bond: "", goals: "", subject: "",
     talent: "", leader: "", helped: "", heroMember: "", motto: "", hours: "", heard: "", funpick: "",
@@ -216,7 +216,6 @@ html,body{overflow-x:clip}
       state.bring !== "" && state.promise !== "" &&
       questions.every(function (_, i) { return state.answers[i] !== undefined; }) &&
       state.like !== "" && state.service.trim() !== "" && state.signed.trim() !== "" &&
-      state.bday.trim() !== "" && state.city.trim() !== "" && state.school.trim() !== "" &&
       state.interests.length > 0 &&
       state.consider.trim() !== "" && state.bond.trim() !== "" && state.goals.trim() !== "" &&
       state.subject !== "" &&
@@ -248,9 +247,6 @@ html,body{overflow-x:clip}
         like: state.like,
         service: state.service.trim().slice(0, 200),
         signed: state.signed.trim().slice(0, 40),
-        bday: state.bday.trim().slice(0, 30),
-        city: state.city.trim().slice(0, 60),
-        school: state.school.trim().slice(0, 80),
         talent: state.talent,
         leader: state.leader.trim().slice(0, 200),
         helped: state.helped.trim().slice(0, 200),
@@ -370,13 +366,8 @@ html,body{overflow-x:clip}
     doc.appendChild(el("h4", "d9if-part", "Part A - About You"));
     var rowA = el("div", "d9if-blankrow");
     blank(rowA, "First name", "name");
-    blank(rowA, "Birthday", "bday");
-    blank(rowA, "City you live in", "city");
+    blank(rowA, "Text number (optional)", "contact");
     doc.appendChild(rowA);
-    var rowA2 = el("div", "d9if-blankrow");
-    blank(rowA2, "Your school", "school");
-    blank(rowA2, "Text number (optional)", "contact");
-    doc.appendChild(rowA2);
     doc.appendChild(el("p", "d9if-note", "Only put a phone number or iCloud if you're in 4th grade or higher."));
     chipRow(doc, "Grade:", GRADE_OPTIONS, "grade");
     chipRow(doc, "Favorite subject in school:", SUBJECT_OPTIONS, "subject");

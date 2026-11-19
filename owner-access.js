@@ -123,9 +123,6 @@
         if (s.heroMember) extra.push(`Famous member who inspires them: ${s.heroMember}.`);
         if (s.hours) extra.push(`Hours per week: ${s.hours}.`);
         if (s.heard) extra.push(`Heard about us from: ${s.heard}.`);
-        if (s.bday) extra.push(`Birthday: ${s.bday}.`);
-        if (s.city) extra.push(`City: ${s.city}.`);
-        if (s.school) extra.push(`School: ${s.school}.`);
         if (extra.length) details += " " + extra.join(" ");
       }
       row.appendChild(text("p", details, "margin:0 0 8px;line-height:1.5"));
