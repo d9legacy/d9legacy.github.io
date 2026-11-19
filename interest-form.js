@@ -15,6 +15,7 @@
   var GRADE_OPTIONS = ["Kindergarten", "1st grade", "2nd grade", "3rd grade", "4th grade", "5th grade", "6th grade", "7th grade or higher"];
   var BRING_OPTIONS = ["Kindness", "Good grades", "Step moves", "Big ideas", "Teamwork"];
   var LIKE_OPTIONS = ["Service", "History", "Colors", "Famous members", "Step and songs"];
+  var INTEREST_OPTIONS = ["Community service", "Leadership", "Black history", "Volunteering", "Events and programs", "Mentoring", "Team activities"];
   var TALENT_OPTIONS = ["Singing", "Stepping", "Drawing", "Sports", "Reading", "Helping others"];
   var HOURS_OPTIONS = ["1 hour", "2-3 hours", "4 or more hours"];
   var HEARD_OPTIONS = ["A friend", "My family", "School", "This website"];
@@ -43,13 +44,18 @@
     return { question: q.question, options: options, answer: order.indexOf(0) };
   });
 
+  var bondWord = cfg.kind === "Fraternity" ? "brotherhood" : "sisterhood";
+  var todayStr = new Date().toLocaleDateString();
+
   var css = `
+html,body{overflow-x:clip}
 .d9if-doc{--acc:#4b2e83;--acc2:#cfb53b;box-sizing:border-box;max-width:860px;margin:0 auto;background:#fffdf8;border:1px solid #e2d9c8;border-radius:10px;box-shadow:0 10px 30px rgba(30,20,15,.08);padding:34px clamp(18px,5vw,52px) 30px;color:#2b2320;font-size:17px;line-height:1.55}
 .d9if-doc *{box-sizing:border-box}
 .d9if-crest{display:block;width:96px;height:106px;object-fit:contain;margin:0 auto 14px}
 .d9if-org{text-align:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#7a6a5c}
 .d9if-title{text-align:center;font-size:clamp(28px,4.6vw,40px);margin:6px 0 4px;color:var(--acc)}
 .d9if-sub{text-align:center;font-size:15px;color:#7a6a5c;margin-bottom:6px}
+.d9if-disclaimer{text-align:center;font-size:14px;font-style:italic;color:#8a7a6b;margin:2px 0 0}
 .d9if-faith{text-align:center;font-size:15px;color:#7a6a5c;margin:4px 0 10px}
 .d9if-hr{border:0;border-top:2px solid var(--acc);margin:14px 0}
 .d9if-hr.double{border-top:4px double var(--acc)}
@@ -78,6 +84,10 @@
 .d9if-quiz{margin:6px 0 2px;padding:12px 14px;border:1px dashed #d8cbb4;border-radius:8px}
 .d9if-quiz .d9if-q{margin-top:10px}
 .d9if-affirm{background:#faf5ea;border:1px solid #e8dec9;border-radius:8px;padding:12px 16px;font-size:15.5px;margin:14px 0}
+.d9if-sigline{display:flex;flex-direction:column;gap:2px;margin:16px 0}
+.d9if-sigline .rule{height:26px;border-bottom:2px solid #b9a88f}
+.d9if-sigline span{font-size:13px;color:#8a7a6b;letter-spacing:.04em}
+.d9if-dateline{font-size:16px;margin:14px 0 0}
 .d9if-sendrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin-top:22px}
 .d9if-send{font:inherit;font-size:17px;font-weight:700;padding:12px 30px;border-radius:999px;border:0;background:var(--acc);color:#fff;cursor:pointer}
 .d9if-send:hover{filter:brightness(1.12)}
@@ -98,8 +108,10 @@
   var state = {
     name: "", bday: "", city: "", school: "", contact: "", grade: "",
     answers: {}, why: "", bring: "", like: "", service: "",
+    interests: [], consider: "", bond: "", goals: "",
     talent: "", leader: "", heroMember: "", motto: "", hours: "", heard: "",
-    promise: "", rules: "", signed: "", dateStr: ""
+    d9means: "", inspires: "", leadmean: "", represent: "",
+    promise: "", rules: "", signed: ""
   };
   var triedSend = false;
 
@@ -146,6 +158,32 @@
     parent.appendChild(field);
   }
 
+  function multiChips(parent, label, options, key) {
+    var field = el("div", "d9if-field");
+    field.appendChild(el("p", "d9if-q", label));
+    var chips = el("div", "d9if-chips");
+    chips.setAttribute("role", "group");
+    chips.setAttribute("aria-label", label);
+    options.forEach(function (option) {
+      var chip = el("button", "d9if-chip", option);
+      chip.type = "button";
+      if (state[key].indexOf(option) !== -1) chip.setAttribute("data-active", "");
+      chip.addEventListener("click", function () {
+        var at = state[key].indexOf(option);
+        if (at === -1) {
+          state[key].push(option);
+          chip.setAttribute("data-active", "");
+        } else {
+          state[key].splice(at, 1);
+          chip.removeAttribute("data-active");
+        }
+      });
+      chips.appendChild(chip);
+    });
+    field.appendChild(chips);
+    parent.appendChild(field);
+  }
+
   function quizBlock(parent) {
     var quiz = el("div", "d9if-quiz");
     questions.forEach(function (q, qi) {
@@ -177,9 +215,13 @@
       questions.every(function (_, i) { return state.answers[i] !== undefined; }) &&
       state.like !== "" && state.service.trim() !== "" && state.signed.trim() !== "" &&
       state.bday.trim() !== "" && state.city.trim() !== "" && state.school.trim() !== "" &&
+      state.interests.length > 0 &&
+      state.consider.trim() !== "" && state.bond.trim() !== "" && state.goals.trim() !== "" &&
       state.talent !== "" && state.leader.trim() !== "" && state.heroMember.trim() !== "" &&
       state.motto.trim() !== "" && state.hours !== "" && state.heard !== "" &&
-      state.rules === "Yes, I agree" && state.dateStr.trim() !== "";
+      state.d9means.trim() !== "" && state.inspires.trim() !== "" &&
+      state.leadmean.trim() !== "" && state.represent.trim() !== "" &&
+      state.rules === "Yes, I agree";
   }
 
   function send() {
@@ -211,7 +253,15 @@
         hours: state.hours,
         heard: state.heard,
         rules: state.rules,
-        formDate: state.dateStr.trim().slice(0, 30)
+        interests: state.interests.slice(0, 10),
+        consider: state.consider.trim().slice(0, 200),
+        bond: state.bond.trim().slice(0, 200),
+        goals: state.goals.trim().slice(0, 200),
+        d9means: state.d9means.trim().slice(0, 200),
+        inspires: state.inspires.trim().slice(0, 120),
+        leadmean: state.leadmean.trim().slice(0, 200),
+        represent: state.represent.trim().slice(0, 200),
+        formDate: todayStr
       },
       date: new Date().toLocaleString()
     };
@@ -255,7 +305,9 @@
   }
 
   function reset() {
-    Object.keys(state).forEach(function (k) { state[k] = k === "answers" ? {} : ""; });
+    Object.keys(state).forEach(function (k) {
+      state[k] = k === "answers" ? {} : (k === "interests" ? [] : "");
+    });
     triedSend = false;
   }
 
@@ -269,10 +321,16 @@
     crest.className = "d9if-crest";
     crest.src = "crest.png";
     crest.alt = cfg.name + " crest";
+    if (cfg.crestBg) {
+      crest.style.background = cfg.crestBg;
+      crest.style.borderRadius = "14px";
+      crest.style.padding = "10px";
+    }
     doc.appendChild(crest);
     doc.appendChild(el("div", "d9if-org", "D9Legacy " + cfg.chapter));
     doc.appendChild(el("h3", "d9if-title", "Membership Interest Form"));
     doc.appendChild(el("div", "d9if-sub", cfg.name + " \u2022 A fan-made chapter \u2022 Not the real " + cfg.kind.toLowerCase()));
+    doc.appendChild(el("div", "d9if-disclaimer", "This is an interest form, not an official membership application."));
     doc.appendChild(el("div", "d9if-faith", "\u271D With Jesus Christ \u271D"));
     doc.appendChild(el("hr", "d9if-hr double"));
 
@@ -282,10 +340,10 @@
     var ol = document.createElement("ol");
     [
       "Type your answers into the blanks. Answer every question and tell the truth - made-up answers may get your letter declined.",
-      "Answer the five quiz questions about " + cfg.name + " in Part B, so the owner knows you learned about the group.",
-      "No grown-up has to sign anything. This club is just for kids, and you fill out your own form.",
-      "Kids D9 chapters never haze. Members are kind and always lift others up. You promise to do this in Part D.",
-      "Sign your name and write the date at the bottom, then press Send my letter. Your form goes to the owner inbox, and the owner reads every one."
+      "Answer the five quiz questions about " + cfg.name + " in Part B, so the owner knows you learned about the group. The quiz never replaces this sheet - you do both.",
+      "No grown-up has to sign or say anything. This club is just for kids, and you fill out your own form.",
+      "Kids D9 chapters never haze. Members are kind and always lift others up. You promise to do this in the Final Section.",
+      "Sign your name at the bottom, then press Send my letter. The date is added for you. Your form goes to the owner inbox, and the owner reads every one."
     ].forEach(function (item) { ol.appendChild(el("li", null, item)); });
     guide.appendChild(ol);
     doc.appendChild(guide);
@@ -295,7 +353,7 @@
     var instructions = el("p", "d9if-instructions");
     var strong = el("strong", null, "Instructions: ");
     instructions.appendChild(strong);
-    instructions.appendChild(document.createTextNode("This form must be typed, signed, and sent to the " + cfg.chapter + " owner inbox. Any kid who asks to join must answer every question. This is a pretend fan club form - it is not a real sorority or fraternity form."));
+    instructions.appendChild(document.createTextNode("This form must be typed, signed, and sent to the " + cfg.chapter + " owner inbox. Any kid who asks to join must answer every question. This is an interest form, not an official membership application - it is a pretend fan club form, not a real sorority or fraternity form."));
     doc.appendChild(instructions);
 
     doc.appendChild(el("h4", "d9if-part", "Part A - About You"));
@@ -321,34 +379,66 @@
     var rowB = el("div", "d9if-blankrow");
     blank(rowB, "Why do you want to join this chapter?", "why", true);
     doc.appendChild(rowB);
-    chipRow(doc, "What will you bring to the chapter?", BRING_OPTIONS, "bring");
     chipRow(doc, "What do you like most about " + cfg.nickname + "?", LIKE_OPTIONS, "like");
     var rowB2 = el("div", "d9if-blankrow");
     blank(rowB2, "How would you help the community?", "service", true);
     doc.appendChild(rowB2);
 
-    doc.appendChild(el("h4", "d9if-part", "Part C - Talents, Time and Heart"));
-    chipRow(doc, "What are you best at?", TALENT_OPTIONS, "talent");
-    var rowC = el("div", "d9if-blankrow");
-    blank(rowC, "Tell us about a time you were a leader", "leader", true);
-    doc.appendChild(rowC);
-    var rowC2 = el("div", "d9if-blankrow");
-    blank(rowC2, "Which famous member inspires you, and why?", "heroMember", true);
-    doc.appendChild(rowC2);
-    var rowC3 = el("div", "d9if-blankrow");
-    blank(rowC3, "Write a motto you promise to live by", "motto", true);
-    doc.appendChild(rowC3);
-    chipRow(doc, "How many hours a week can you help out?", HOURS_OPTIONS, "hours");
-    chipRow(doc, "How did you hear about D9Legacy?", HEARD_OPTIONS, "heard");
+    doc.appendChild(el("h4", "d9if-part", "Part C - Your Interests"));
+    multiChips(doc, "What are you interested in? Pick all that fit.", INTEREST_OPTIONS, "interests");
 
-    doc.appendChild(el("h4", "d9if-part", "Part D - Commitment and Affirmation"));
+    doc.appendChild(el("h4", "d9if-part", "Part D - Membership Questions"));
+    var rowD1 = el("div", "d9if-blankrow");
+    blank(rowD1, "Why should we consider you?", "consider", true);
+    doc.appendChild(rowD1);
+    chipRow(doc, "What can you bring to the organization?", BRING_OPTIONS, "bring");
+    var rowD2 = el("div", "d9if-blankrow");
+    blank(rowD2, "What does " + bondWord + " mean to you?", "bond", true);
+    doc.appendChild(rowD2);
+    var rowD3 = el("div", "d9if-blankrow");
+    blank(rowD3, "What are your goals?", "goals", true);
+    doc.appendChild(rowD3);
+    chipRow(doc, "How did you hear about us?", HEARD_OPTIONS, "heard");
+
+    doc.appendChild(el("h4", "d9if-part", "Part E - Talents, Time and Heart"));
+    chipRow(doc, "What are you best at?", TALENT_OPTIONS, "talent");
+    var rowE = el("div", "d9if-blankrow");
+    blank(rowE, "Tell us about a time you were a leader", "leader", true);
+    doc.appendChild(rowE);
+    var rowE2 = el("div", "d9if-blankrow");
+    blank(rowE2, "Which famous member inspires you, and why?", "heroMember", true);
+    doc.appendChild(rowE2);
+    var rowE3 = el("div", "d9if-blankrow");
+    blank(rowE3, "Write a motto you promise to live by", "motto", true);
+    doc.appendChild(rowE3);
+    chipRow(doc, "How many hours a week can you help out?", HOURS_OPTIONS, "hours");
+
+    doc.appendChild(el("h4", "d9if-part", "Part F - Extra Questions"));
+    var rowF1 = el("div", "d9if-blankrow");
+    blank(rowF1, "What does the Divine Nine mean to you?", "d9means", true);
+    doc.appendChild(rowF1);
+    var rowF2 = el("div", "d9if-blankrow");
+    blank(rowF2, "Which organization inspires you most?", "inspires", true);
+    doc.appendChild(rowF2);
+    var rowF3 = el("div", "d9if-blankrow");
+    blank(rowF3, "What does leadership mean to you?", "leadmean", true);
+    doc.appendChild(rowF3);
+    var rowF4 = el("div", "d9if-blankrow");
+    blank(rowF4, "What would you do to represent your organization positively?", "represent", true);
+    doc.appendChild(rowF4);
+
+    doc.appendChild(el("h4", "d9if-part", "Final Section"));
     chipRow(doc, "Do you promise to do well in school and help your community?", PROMISE_OPTIONS, "promise");
     doc.appendChild(el("p", "d9if-affirm", "I affirm that the information on this form is true and correct. I understand that made-up answers can get my letter declined, and I agree to be kind, never haze, and always lift others up."));
     chipRow(doc, "Do you agree?", RULES_OPTIONS, "rules");
-    var rowD = el("div", "d9if-blankrow");
-    blank(rowD, "Signature", "signed", true);
-    blank(rowD, "Date", "dateStr");
-    doc.appendChild(rowD);
+    var repSig = el("div", "d9if-sigline");
+    repSig.appendChild(el("div", "rule"));
+    repSig.appendChild(el("span", null, "Organization representative signature - the chapter owner signs here after reading your letter. Leave it blank."));
+    doc.appendChild(repSig);
+    var rowG2 = el("div", "d9if-blankrow");
+    blank(rowG2, "Applicant signature", "signed", true);
+    doc.appendChild(rowG2);
+    doc.appendChild(el("p", "d9if-dateline", "Date submitted: " + todayStr));
     doc.appendChild(el("div", "d9if-foot", "D9Legacy Membership Intake Manual - Revised November 2026 \u00B7 This is a kid-made fan club form. It is not from the real Divine Nine."));
 
     var sendRow = el("div", "d9if-sendrow");

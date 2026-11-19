@@ -99,7 +99,29 @@
       const row = document.createElement("article");
       row.style.cssText = "padding:14px 0;border-top:1px solid #e7dfda";
       row.appendChild(text("h4", `${letter.name} wants to join ${letter.group}`, "margin:0 0 8px;font-size:1em"));
-      const details = `Grade: ${letter.grade || "not said"}. Text at: ${letter.contact || "not given"}. Why: ${letter.why || ""} Will bring: ${letter.bring || ""}. Promise: ${letter.promise || ""}. Quiz: ${letter.score ?? "?"} out of ${letter.total ?? "?"}. ${letter.sheet ? `Sheet: likes ${letter.sheet.like}; would help by: ${letter.sheet.service}; signed ${letter.sheet.signed}.` : ""} ${letter.date || ""}`;
+      let details = `Grade: ${letter.grade || "not said"}. Text at: ${letter.contact || "not given"}. Why: ${letter.why || ""} Will bring: ${letter.bring || ""}. Promise: ${letter.promise || ""}. Quiz: ${letter.score ?? "?"} out of ${letter.total ?? "?"}. ${letter.sheet ? `Sheet: likes ${letter.sheet.like}; would help by: ${letter.sheet.service}; signed ${letter.sheet.signed}.` : ""} ${letter.date || ""}`;
+      if (letter.sheet) {
+        const s = letter.sheet;
+        const extra = [];
+        if (Array.isArray(s.interests) && s.interests.length) extra.push(`Interests: ${s.interests.join(", ")}.`);
+        if (s.consider) extra.push(`Why we should consider them: ${s.consider}`);
+        if (s.bond) extra.push(`What brotherhood/sisterhood means to them: ${s.bond}`);
+        if (s.goals) extra.push(`Goals: ${s.goals}`);
+        if (s.d9means) extra.push(`What the Divine Nine means to them: ${s.d9means}`);
+        if (s.inspires) extra.push(`Org that inspires them most: ${s.inspires}`);
+        if (s.leadmean) extra.push(`What leadership means to them: ${s.leadmean}`);
+        if (s.represent) extra.push(`How they would represent the org: ${s.represent}`);
+        if (s.motto) extra.push(`Motto: ${s.motto}`);
+        if (s.talent) extra.push(`Best at: ${s.talent}.`);
+        if (s.leader) extra.push(`Leadership moment: ${s.leader}`);
+        if (s.heroMember) extra.push(`Famous member who inspires them: ${s.heroMember}`);
+        if (s.hours) extra.push(`Hours per week: ${s.hours}.`);
+        if (s.heard) extra.push(`Heard about us from: ${s.heard}.`);
+        if (s.bday) extra.push(`Birthday: ${s.bday}.`);
+        if (s.city) extra.push(`City: ${s.city}.`);
+        if (s.school) extra.push(`School: ${s.school}.`);
+        if (extra.length) details += " " + extra.join(" ");
+      }
       row.appendChild(text("p", details, "margin:0 0 8px;line-height:1.5"));
       row.appendChild(text("p", `Status: ${decisions[letter.id] === "accepted" ? "Accepted" : decisions[letter.id] === "declined" ? "Declined" : "Waiting"}.`, "margin:0 0 8px;font-weight:600"));
       if (letter.id.startsWith("sample-")) {
