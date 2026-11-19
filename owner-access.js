@@ -196,6 +196,10 @@
   window.addEventListener("hashchange", render);
   window.addEventListener("popstate", render);
   window.addEventListener("instinct-route", render);
-  new MutationObserver(render).observe(document.getElementById("root"), { childList: true, subtree: true });
+  let panelObserver;
+  const observePanel = () => panelObserver.observe(document.getElementById("root"), { childList: true, subtree: true });
+  const renderGuarded = () => { panelObserver.disconnect(); try { render(); } finally { observePanel(); } };
+  panelObserver = new MutationObserver(renderGuarded);
+  observePanel();
   render();
 })();
