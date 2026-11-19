@@ -14463,7 +14463,7 @@ Error generating stack: ` + i.message + `
     ] }) });
   }
   function Inbox({ session, unlocked, setUnlocked, saved, letters, decisions, setDecisions }) {
-    const [orgLetters, setOrgLetters] = (0, import_react.useState)(orgs[0].letters);
+    const [orgLetters, setOrgLetters] = (0, import_react.useState)(() => { const selected = new URLSearchParams(location.search).get("chapter"); return orgs.some(o => o.letters === selected) ? selected : orgs[0].letters; });
     const [entry, setEntry] = (0, import_react.useState)("");
     const [wrong, setWrong] = (0, import_react.useState)(false);
     const org = orgs.find((item) => item.letters === orgLetters) ?? orgs[0];

@@ -70,6 +70,8 @@
     option.textContent = `${org.name} (${letters})`;
     groupSelect.appendChild(option);
   });
+  const requestedOrg = new URLSearchParams(location.search).get("chapter");
+  if (ownerPasswords[requestedOrg]) groupSelect.value = requestedOrg;
   const readScope = () => {
     try { return JSON.parse(sessionStorage.getItem(scopeKey) || "null"); }
     catch (_) { return null; }
@@ -152,8 +154,11 @@
     });
   }
   function render() {
+    const root = document.getElementById("root");
+    if (root && !panel.isConnected) root.appendChild(panel);
     panel.hidden = !isInboxRoute();
     panel.style.display = panel.hidden ? "none" : "flex";
+    document.body.classList.toggle("d9-scoped-owner", !panel.hidden && Boolean(readScope()?.org));
     if (panel.hidden) return;
     const selectedLetters = groupSelect.value || Object.keys(ownerPasswords)[0];
     const org = { letters: selectedLetters, ...ownerPasswords[selectedLetters] };
