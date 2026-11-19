@@ -85,7 +85,7 @@ html,body{overflow-x:clip}
 .d9if-quiz .d9if-q{margin-top:10px}
 .d9if-affirm{background:#faf5ea;border:1px solid #e8dec9;border-radius:8px;padding:12px 16px;font-size:15.5px;margin:14px 0}
 .d9if-sigline{display:flex;flex-direction:column;gap:2px;margin:16px 0}
-.d9if-sigline .rule{height:26px;border-bottom:2px solid #b9a88f}
+.d9if-sigline .d9if-ruleline{height:26px;border-bottom:2px solid #b9a88f}
 .d9if-sigline span{font-size:13px;color:#8a7a6b;letter-spacing:.04em}
 .d9if-dateline{font-size:16px;margin:14px 0 0}
 .d9if-sendrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin-top:22px}
@@ -432,7 +432,7 @@ html,body{overflow-x:clip}
     doc.appendChild(el("p", "d9if-affirm", "I affirm that the information on this form is true and correct. I understand that made-up answers can get my letter declined, and I agree to be kind, never haze, and always lift others up."));
     chipRow(doc, "Do you agree?", RULES_OPTIONS, "rules");
     var repSig = el("div", "d9if-sigline");
-    repSig.appendChild(el("div", "rule"));
+    repSig.appendChild(el("div", "d9if-ruleline"));
     repSig.appendChild(el("span", null, "Organization representative signature - the chapter owner signs here after reading your letter. Leave it blank."));
     doc.appendChild(repSig);
     var rowG2 = el("div", "d9if-blankrow");
