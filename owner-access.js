@@ -112,8 +112,14 @@
         if (s.leadmean) extra.push(`What leadership means to them: ${s.leadmean}.`);
         if (s.represent) extra.push(`How they would represent the org: ${s.represent}.`);
         if (s.motto) extra.push(`Motto: ${s.motto}.`);
+        if (s.subject) extra.push(`Favorite subject: ${s.subject}.`);
         if (s.talent) extra.push(`Best at: ${s.talent}.`);
         if (s.leader) extra.push(`Leadership moment: ${s.leader}.`);
+        if (s.helped) extra.push(`A time they helped someone: ${s.helped}.`);
+        if (s.funpick) extra.push(`Sounds most fun: ${s.funpick}.`);
+        if (s.learned) extra.push(`One thing they learned: ${s.learned}.`);
+        if (s.lookUpTo) extra.push(`Looks up to: ${s.lookUpTo}.`);
+        if (s.event) extra.push(`Chapter event they would plan: ${s.event}.`);
         if (s.heroMember) extra.push(`Famous member who inspires them: ${s.heroMember}.`);
         if (s.hours) extra.push(`Hours per week: ${s.hours}.`);
         if (s.heard) extra.push(`Heard about us from: ${s.heard}.`);

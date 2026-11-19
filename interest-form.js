@@ -18,6 +18,8 @@
   var INTEREST_OPTIONS = ["Community service", "Leadership", "Black history", "Volunteering", "Events and programs", "Mentoring", "Team activities"];
   var TALENT_OPTIONS = ["Singing", "Stepping", "Drawing", "Sports", "Reading", "Helping others"];
   var HOURS_OPTIONS = ["1 hour", "2-3 hours", "4 or more hours"];
+  var SUBJECT_OPTIONS = ["Reading", "Math", "Science", "History", "Art", "Music", "Gym"];
+  var FUN_OPTIONS = ["Community clean-up", "Reading buddy", "Step show", "Fundraiser", "Food drive"];
   var HEARD_OPTIONS = ["A friend", "My family", "School", "This website"];
   var PROMISE_OPTIONS = ["Yes, I promise", "I will try my best"];
   var RULES_OPTIONS = ["Yes, I agree", "I need to read the rules again"];
@@ -49,7 +51,7 @@
 
   var css = `
 html,body{overflow-x:clip}
-.d9if-doc{--acc:#4b2e83;--acc2:#cfb53b;box-sizing:border-box;max-width:860px;margin:0 auto;background:#fffdf8;border:1px solid #e2d9c8;border-radius:10px;box-shadow:0 10px 30px rgba(30,20,15,.08);padding:34px clamp(18px,5vw,52px) 30px;color:#2b2320;font-size:17px;line-height:1.55}
+.d9if-doc{--acc:#4b2e83;--acc2:#cfb53b;font-family:'Cormorant Garamond',Georgia,serif;box-sizing:border-box;max-width:860px;margin:0 auto;background:#fffdf8;border:1px solid #e2d9c8;border-radius:10px;box-shadow:0 10px 30px rgba(30,20,15,.08);padding:34px clamp(18px,5vw,52px) 30px;color:#2b2320;font-size:17px;line-height:1.55}
 .d9if-doc *{box-sizing:border-box}
 .d9if-crest{display:block;width:96px;height:106px;object-fit:contain;margin:0 auto 14px}
 .d9if-org{text-align:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#7a6a5c}
@@ -108,9 +110,9 @@ html,body{overflow-x:clip}
   var state = {
     name: "", bday: "", city: "", school: "", contact: "", grade: "",
     answers: {}, why: "", bring: "", like: "", service: "",
-    interests: [], consider: "", bond: "", goals: "",
-    talent: "", leader: "", heroMember: "", motto: "", hours: "", heard: "",
-    d9means: "", inspires: "", leadmean: "", represent: "",
+    interests: [], consider: "", bond: "", goals: "", subject: "",
+    talent: "", leader: "", helped: "", heroMember: "", motto: "", hours: "", heard: "", funpick: "",
+    d9means: "", inspires: "", leadmean: "", represent: "", learned: "", lookUpTo: "", event: "",
     promise: "", rules: "", signed: ""
   };
   var triedSend = false;
@@ -217,10 +219,13 @@ html,body{overflow-x:clip}
       state.bday.trim() !== "" && state.city.trim() !== "" && state.school.trim() !== "" &&
       state.interests.length > 0 &&
       state.consider.trim() !== "" && state.bond.trim() !== "" && state.goals.trim() !== "" &&
-      state.talent !== "" && state.leader.trim() !== "" && state.heroMember.trim() !== "" &&
-      state.motto.trim() !== "" && state.hours !== "" && state.heard !== "" &&
+      state.subject !== "" &&
+      state.talent !== "" && state.leader.trim() !== "" && state.helped.trim() !== "" &&
+      state.heroMember.trim() !== "" &&
+      state.motto.trim() !== "" && state.hours !== "" && state.heard !== "" && state.funpick !== "" &&
       state.d9means.trim() !== "" && state.inspires.trim() !== "" &&
       state.leadmean.trim() !== "" && state.represent.trim() !== "" &&
+      state.learned.trim() !== "" && state.lookUpTo.trim() !== "" && state.event.trim() !== "" &&
       state.rules === "Yes, I agree";
   }
 
@@ -248,6 +253,12 @@ html,body{overflow-x:clip}
         school: state.school.trim().slice(0, 80),
         talent: state.talent,
         leader: state.leader.trim().slice(0, 200),
+        helped: state.helped.trim().slice(0, 200),
+        subject: state.subject,
+        funpick: state.funpick,
+        learned: state.learned.trim().slice(0, 200),
+        lookUpTo: state.lookUpTo.trim().slice(0, 200),
+        event: state.event.trim().slice(0, 200),
         heroMember: state.heroMember.trim().slice(0, 60),
         motto: state.motto.trim().slice(0, 120),
         hours: state.hours,
@@ -368,6 +379,7 @@ html,body{overflow-x:clip}
     doc.appendChild(rowA2);
     doc.appendChild(el("p", "d9if-note", "Only put a phone number or iCloud if you're in 4th grade or higher."));
     chipRow(doc, "Grade:", GRADE_OPTIONS, "grade");
+    chipRow(doc, "Favorite subject in school:", SUBJECT_OPTIONS, "subject");
 
     doc.appendChild(el("h4", "d9if-part", "Part B - Your Chapter"));
     var chapLine = el("p", "d9if-q");
@@ -405,6 +417,9 @@ html,body{overflow-x:clip}
     var rowE = el("div", "d9if-blankrow");
     blank(rowE, "Tell us about a time you were a leader", "leader", true);
     doc.appendChild(rowE);
+    var rowE1 = el("div", "d9if-blankrow");
+    blank(rowE1, "Tell us about a time you helped someone", "helped", true);
+    doc.appendChild(rowE1);
     var rowE2 = el("div", "d9if-blankrow");
     blank(rowE2, "Which famous member inspires you, and why?", "heroMember", true);
     doc.appendChild(rowE2);
@@ -412,6 +427,7 @@ html,body{overflow-x:clip}
     blank(rowE3, "Write a motto you promise to live by", "motto", true);
     doc.appendChild(rowE3);
     chipRow(doc, "How many hours a week can you help out?", HOURS_OPTIONS, "hours");
+    chipRow(doc, "Which of these sounds most fun?", FUN_OPTIONS, "funpick");
 
     doc.appendChild(el("h4", "d9if-part", "Part F - Extra Questions"));
     var rowF1 = el("div", "d9if-blankrow");
@@ -426,6 +442,15 @@ html,body{overflow-x:clip}
     var rowF4 = el("div", "d9if-blankrow");
     blank(rowF4, "What would you do to represent your organization positively?", "represent", true);
     doc.appendChild(rowF4);
+    var rowF5 = el("div", "d9if-blankrow");
+    blank(rowF5, "What is one thing you learned about " + cfg.name + " from this website?", "learned", true);
+    doc.appendChild(rowF5);
+    var rowF6 = el("div", "d9if-blankrow");
+    blank(rowF6, "Who do you look up to, and why?", "lookUpTo", true);
+    doc.appendChild(rowF6);
+    var rowF7 = el("div", "d9if-blankrow");
+    blank(rowF7, "If you could plan one chapter event, what would it be?", "event", true);
+    doc.appendChild(rowF7);
 
     doc.appendChild(el("h4", "d9if-part", "Final Section"));
     chipRow(doc, "Do you promise to do well in school and help your community?", PROMISE_OPTIONS, "promise");
