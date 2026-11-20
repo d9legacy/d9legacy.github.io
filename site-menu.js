@@ -30,6 +30,11 @@
     login.href = isChapter ? 'login.html' : '/#/login';
     login.className = 'd9-login-link'; login.textContent = 'Login';
     nav.append(login);
+    if (isChapter) {
+      const directory = document.createElement('a');
+      directory.href = 'directory.html'; directory.textContent = 'Chapter Directory';
+      nav.append(directory);
+    }
     source.querySelectorAll('a').forEach(link => {
       if (/log\s*in|^Hi,/i.test(link.textContent)) return;
       const copy = link.cloneNode(true); copy.removeAttribute('id'); copy.removeAttribute('class');
