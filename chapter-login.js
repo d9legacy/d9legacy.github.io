@@ -22,7 +22,7 @@ const ownerPasswords = {
     "ΙΦΘ": { name: "Iota Phi Theta", password: "SilverCentaur1963" }
   };
 const additional = {
-    "ΩΨΦ": { name: "Josh", password: "JoshOmega1911" },
+    "ΑΦΑ": { name: "Josh", password: "JoshAlpha1906" },
     "ΔΣΘ": { name: "Kinte", password: "KinteDST1913" }
   };
 const orgs = {"alpha-phi-alpha": "ΑΦΑ", "alpha-kappa-alpha": "ΑΚΑ", "kappa-alpha-psi": "ΚΑΨ", "omega-psi-phi": "ΩΨΦ", "delta-sigma-theta": "ΔΣΘ", "phi-beta-sigma": "ΦΒΣ", "zeta-phi-beta": "ΖΦΒ", "sigma-gamma-rho": "ΣΓΡ", "iota-phi-theta": "ΙΦΘ"};
