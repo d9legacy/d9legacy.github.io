@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D9 Collaboration Wall - D9Legacy</title>
+<meta name="description" content="Chapters teaming up across the Divine Nine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d9features.css?v=feat1">
+<link rel="stylesheet" href="site-menu.css?v=menu1">
+<script src="site-menu.js?v=directory2" defer></script>
+</head>
+<body data-d9root="1">
+<div class="topbar"><span>Started in 1906 &bull; Est. by Josh in 2026</span><span><a href="https://d9legacy.github.io/">D9Legacy</a> &bull; Fan-made, not an official organization website</span></div>
+<header class="site">
+  <a class="d9-emblem" href="index.html" aria-label="D9Legacy home">D9L</a>
+  <div class="brand"><small>The Divine Nine &bull; Kids Edition</small><h1>D9LEGACY</h1><div class="inc">WITH JESUS CHRIST</div></div>
+  <nav class="main"><a href="index.html">Home</a><a href="locator.html">Chapter Locator</a><a href="spotlights.html">Nine Spotlights</a><a href="history.html">D9 History</a><a href="timeline.html">Founders Timeline</a><a href="compare.html">Compare Orgs</a><a href="greek-alphabet.html">Greek Alphabet</a><a href="achievements.html">Achievements</a><a href="awards.html">Awards</a><a href="collab-wall.html" class="here">Collab Wall</a><a href="guestbook.html">Guestbook</a><a href="newsletter.html">Newsletter</a><a href="certificates.html">Certificates</a><a href="leadership.html">Contact Leadership</a><a href="faq.html">FAQ</a><a href="dashboard.html">Owner Dashboard</a></nav>
+</header>
+<div class="wrap">
+<section class="hero"><p class="kicker">Stronger Together</p><h2>D9 Collaboration Wall</h2><p class="sub">Where chapters team up - service days, step shows and projects across all nine organizations.</p></section>
+<section class="sec">
+<p class="honesty">Demo wall: posts are saved only on this device. Chapter owners will be able to post real collabs from the Owner Dashboard demo.</p>
+<form class="demo" id="cwform">
+<label for="cw-title">Collab title</label><input id="cw-title" maxlength="60" required>
+<label for="cw-orgs">Which chapters?</label><input id="cw-orgs" maxlength="80" placeholder="Example: AKA + SGRho" required>
+<label for="cw-msg">What is the plan?</label><textarea id="cw-msg" maxlength="300" required></textarea>
+<button class="btn" type="submit">Post the collab</button><p class="statusmsg" id="cw-status" role="status"></p>
+</form>
+<div class="wall-list" id="cw-list"></div>
+</section>
+<script>
+const KEY='d9legacy:collab.v1';
+const SEED=[{"title": "AKA x DST service day", "orgs": "Alpha Kappa Alpha + Delta Sigma Theta", "msg": "Pink and green meets crimson and cream for a community clean-up day. Jaylee and Kinte are planning it!", "when": "Sample post"}, {"title": "Step practice together", "orgs": "Kappa Alpha Psi + Omega Psi Phi", "msg": "CJ invited the Ques to practice steps and canes on the same Saturday. Bring water!", "when": "Sample post"}, {"title": "All-nine picture day", "orgs": "Every chapter", "msg": "Josh wants one big photo with all nine chapter crests. Date coming soon.", "when": "Sample post"}];
+const read=()=>{try{const v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v:null}catch(e){return null}};
+let posts=read();if(!posts){posts=SEED;localStorage.setItem(KEY,JSON.stringify(posts));}
+function render(){const list=document.getElementById('cw-list');
+list.innerHTML='<h3 style="font-family:Poppins">Collabs on this device</h3>';
+posts.slice().reverse().forEach(m=>{const d=document.createElement('div');d.className='wall-item';
+d.innerHTML='<h4></h4><span class="when"></span><p></p>';
+d.querySelector('h4').textContent=m.title;d.querySelector('.when').textContent=m.orgs+' - '+m.when;
+d.querySelector('p').textContent=m.msg;list.appendChild(d);});}
+document.getElementById('cwform').addEventListener('submit',e=>{e.preventDefault();
+posts.push({title:document.getElementById('cw-title').value.trim(),orgs:document.getElementById('cw-orgs').value.trim(),msg:document.getElementById('cw-msg').value.trim(),when:new Date().toLocaleDateString()});
+localStorage.setItem(KEY,JSON.stringify(posts));e.target.reset();
+document.getElementById('cw-status').textContent='Posted! Saved on this device.';render();});
+render();
+</script></div>
+<footer class="sitefoot">
+  <p><b>D9Legacy</b> is a fan-made, kid-friendly website about the Divine Nine. It is not an official website of any organization.</p>
+  <p>Questions or ideas? Text the D9Legacy line: <b>(678) 734-0325</b> &bull; Follow <b>@d9legacy7</b> on TikTok.</p>
+  <p>Started in 1906. Est. by Josh in 2026. <span class="faith">With Jesus Christ</span></p>
+</footer>
+</body>
+</html>

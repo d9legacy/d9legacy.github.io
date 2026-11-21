@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guestbook - D9Legacy</title>
+<meta name="description" content="Sign the D9Legacy guestbook.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d9features.css?v=feat1">
+<link rel="stylesheet" href="site-menu.css?v=menu1">
+<script src="site-menu.js?v=directory2" defer></script>
+</head>
+<body data-d9root="1">
+<div class="topbar"><span>Started in 1906 &bull; Est. by Josh in 2026</span><span><a href="https://d9legacy.github.io/">D9Legacy</a> &bull; Fan-made, not an official organization website</span></div>
+<header class="site">
+  <a class="d9-emblem" href="index.html" aria-label="D9Legacy home">D9L</a>
+  <div class="brand"><small>The Divine Nine &bull; Kids Edition</small><h1>D9LEGACY</h1><div class="inc">WITH JESUS CHRIST</div></div>
+  <nav class="main"><a href="index.html">Home</a><a href="locator.html">Chapter Locator</a><a href="spotlights.html">Nine Spotlights</a><a href="history.html">D9 History</a><a href="timeline.html">Founders Timeline</a><a href="compare.html">Compare Orgs</a><a href="greek-alphabet.html">Greek Alphabet</a><a href="achievements.html">Achievements</a><a href="awards.html">Awards</a><a href="collab-wall.html">Collab Wall</a><a href="guestbook.html" class="here">Guestbook</a><a href="newsletter.html">Newsletter</a><a href="certificates.html">Certificates</a><a href="leadership.html">Contact Leadership</a><a href="faq.html">FAQ</a><a href="dashboard.html">Owner Dashboard</a></nav>
+</header>
+<div class="wrap">
+<section class="hero"><p class="kicker">Leave Your Mark</p><h2>The D9Legacy Guestbook</h2><p class="sub">Sign in, say hi, and tell everybody your favorite organization.</p></section>
+<section class="sec">
+<p class="honesty">Demo guestbook: messages are saved only on this device. Other visitors cannot see them, and nothing is really sent anywhere.</p>
+<form class="demo" id="gbform">
+<label for="gb-name">Your first name</label><input id="gb-name" maxlength="30" required>
+<label for="gb-org">Favorite organization (optional)</label><select id="gb-org"><option value="">No favorite yet</option><option>Alpha Phi Alpha</option><option>Alpha Kappa Alpha</option><option>Kappa Alpha Psi</option><option>Omega Psi Phi</option><option>Delta Sigma Theta</option><option>Phi Beta Sigma</option><option>Zeta Phi Beta</option><option>Sigma Gamma Rho</option><option>Iota Phi Theta</option></select>
+<label for="gb-msg">Your message</label><textarea id="gb-msg" maxlength="300" required></textarea>
+<button class="btn" type="submit">Sign the guestbook</button><p class="statusmsg" id="gb-status" role="status"></p>
+</form>
+<div class="wall-list" id="gb-list"></div>
+</section>
+<script>
+const KEY='d9legacy:guestbook.v1';
+const SEED=[{"name": "Josh", "msg": "Welcome to D9Legacy! Sign the guestbook and tell us your favorite org.", "when": "Nov 20, 2026"}, {"name": "Ahriyah", "msg": "Pink and green forever! So happy to be the first member.", "when": "Nov 20, 2026"}];
+const read=()=>{try{const v=JSON.parse(localStorage.getItem(KEY));return Array.isArray(v)?v:null}catch(e){return null}};
+let msgs=read();if(!msgs){msgs=SEED;localStorage.setItem(KEY,JSON.stringify(msgs));}
+function render(){const list=document.getElementById('gb-list');
+list.innerHTML='<h3 style="font-family:Poppins">Signatures on this device</h3>';
+msgs.slice().reverse().forEach(m=>{const d=document.createElement('div');d.className='wall-item';
+d.innerHTML='<h4></h4><span class="when"></span><p></p>';
+d.querySelector('h4').textContent=m.name+(m.org?' - '+m.org:'');
+d.querySelector('.when').textContent=m.when;d.querySelector('p').textContent=m.msg;list.appendChild(d);});}
+document.getElementById('gbform').addEventListener('submit',e=>{e.preventDefault();
+msgs.push({name:document.getElementById('gb-name').value.trim(),org:document.getElementById('gb-org').value,msg:document.getElementById('gb-msg').value.trim(),when:new Date().toLocaleDateString()});
+localStorage.setItem(KEY,JSON.stringify(msgs));e.target.reset();
+document.getElementById('gb-status').textContent='Signed! Saved on this device.';render();});
+render();
+</script></div>
+<footer class="sitefoot">
+  <p><b>D9Legacy</b> is a fan-made, kid-friendly website about the Divine Nine. It is not an official website of any organization.</p>
+  <p>Questions or ideas? Text the D9Legacy line: <b>(678) 734-0325</b> &bull; Follow <b>@d9legacy7</b> on TikTok.</p>
+  <p>Started in 1906. Est. by Josh in 2026. <span class="faith">With Jesus Christ</span></p>
+</footer>
+</body>
+</html>

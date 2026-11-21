@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Downloadable Certificates - D9Legacy</title>
+<meta name="description" content="Create and download a D9Legacy chapter certificate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d9features.css?v=feat1">
+<link rel="stylesheet" href="site-menu.css?v=menu1">
+<script src="site-menu.js?v=directory2" defer></script>
+</head>
+<body data-d9root="1">
+<div class="topbar"><span>Started in 1906 &bull; Est. by Josh in 2026</span><span><a href="https://d9legacy.github.io/">D9Legacy</a> &bull; Fan-made, not an official organization website</span></div>
+<header class="site">
+  <a class="d9-emblem" href="index.html" aria-label="D9Legacy home">D9L</a>
+  <div class="brand"><small>The Divine Nine &bull; Kids Edition</small><h1>D9LEGACY</h1><div class="inc">WITH JESUS CHRIST</div></div>
+  <nav class="main"><a href="index.html">Home</a><a href="locator.html">Chapter Locator</a><a href="spotlights.html">Nine Spotlights</a><a href="history.html">D9 History</a><a href="timeline.html">Founders Timeline</a><a href="compare.html">Compare Orgs</a><a href="greek-alphabet.html">Greek Alphabet</a><a href="achievements.html">Achievements</a><a href="awards.html">Awards</a><a href="collab-wall.html">Collab Wall</a><a href="guestbook.html">Guestbook</a><a href="newsletter.html">Newsletter</a><a href="certificates.html" class="here">Certificates</a><a href="leadership.html">Contact Leadership</a><a href="faq.html">FAQ</a><a href="dashboard.html">Owner Dashboard</a></nav>
+</header>
+<div class="wrap">
+<section class="hero"><p class="kicker">Make It Official</p><h2>Downloadable Certificates</h2><p class="sub">Pick your chapter, type your name, and download a real certificate picture to keep, print or share.</p></section>
+<section class="sec">
+<p class="honesty">These certificates are D9Legacy fan-made fun, not official documents of the real organizations.</p>
+<form class="demo" id="cform" style="max-width:820px">
+<label for="c-org">Chapter</label><select id="c-org"><option value="alpha-phi-alpha">Alpha Phi Alpha ΑΦΑ</option><option value="alpha-kappa-alpha">Alpha Kappa Alpha ΑΚΑ</option><option value="kappa-alpha-psi">Kappa Alpha Psi ΚΑΨ</option><option value="omega-psi-phi">Omega Psi Phi ΩΨΦ</option><option value="delta-sigma-theta">Delta Sigma Theta ΔΣΘ</option><option value="phi-beta-sigma">Phi Beta Sigma ΦΒΣ</option><option value="zeta-phi-beta">Zeta Phi Beta ΖΦΒ</option><option value="sigma-gamma-rho">Sigma Gamma Rho ΣΓΡ</option><option value="iota-phi-theta">Iota Phi Theta ΙΦΘ</option></select>
+<label for="c-name">Name on the certificate</label><input id="c-name" maxlength="40" placeholder="Your name" required>
+<label for="c-reason">Award or reason</label><select id="c-reason">
+<option>Certificate of Membership Interest</option><option>Chapter Achievement Award</option>
+<option>Service Star Award</option><option>Greek Alphabet Star</option><option>Founder's Honor Roll</option></select>
+<button class="btn" type="submit">Preview certificate</button>
+<button class="btn ghost" type="button" id="c-dl">Download as picture (PNG)</button>
+<p class="statusmsg" id="c-status" role="status"></p>
+</form>
+<canvas id="cert" class="cert-preview" width="1200" height="900"></canvas>
+</section>
+<script>
+const ORGS=[{"slug": "alpha-phi-alpha", "name": "Alpha Phi Alpha", "letters": "\u0391\u03a6\u0391", "motto": "First of All, Servants of All, We Shall Transcend All", "c1": "#0f0d0b", "c2": "#c9a227", "owner": "Josh (Joshua Samuel)"}, {"slug": "alpha-kappa-alpha", "name": "Alpha Kappa Alpha", "letters": "\u0391\u039a\u0391", "motto": "By Culture and By Merit", "c1": "#d4576a", "c2": "#1f6e43", "owner": "Jaylee D. Strong"}, {"slug": "kappa-alpha-psi", "name": "Kappa Alpha Psi", "letters": "\u039a\u0391\u03a8", "motto": "Achievement in Every Field of Human Endeavor", "c1": "#a6192e", "c2": "#f6f4f0", "owner": "Christopher \"CJ\" Smith"}, {"slug": "omega-psi-phi", "name": "Omega Psi Phi", "letters": "\u03a9\u03a8\u03a6", "motto": "Friendship Is Essential to the Soul", "c1": "#4b2e83", "c2": "#c9a227", "owner": null}, {"slug": "delta-sigma-theta", "name": "Delta Sigma Theta", "letters": "\u0394\u03a3\u0398", "motto": "Intelligence is the Torch of Wisdom", "c1": "#a6192e", "c2": "#f6f4f0", "owner": "Kinte (King Murry)"}, {"slug": "phi-beta-sigma", "name": "Phi Beta Sigma", "letters": "\u03a6\u0392\u03a3", "motto": "Culture For Service and Service For Humanity", "c1": "#1b3d8f", "c2": "#ffffff", "owner": null}, {"slug": "zeta-phi-beta", "name": "Zeta Phi Beta", "letters": "\u0396\u03a6\u0392", "motto": "Scholarship, Service, Sisterhood and Finer Womanhood", "c1": "#1b3d8f", "c2": "#ffffff", "owner": null}, {"slug": "sigma-gamma-rho", "name": "Sigma Gamma Rho", "letters": "\u03a3\u0393\u03a1", "motto": "Greater Service, Greater Progress", "c1": "#1b3d8f", "c2": "#c9a227", "owner": "Ivory Cooper"}, {"slug": "iota-phi-theta", "name": "Iota Phi Theta", "letters": "\u0399\u03a6\u0398", "motto": "Building A Tradition, Not Resting Upon One!", "c1": "#4a3b31", "c2": "#c9a227", "owner": null}];
+const cv=document.getElementById('cert'),cx=cv.getContext('2d');
+const crests={};let ready=false,loading=0;
+ORGS.forEach(o=>{const img=new Image();loading++;img.onload=()=>{ready=true;draw();};img.onerror=()=>{draw();};img.src=o.slug+'/crest.png';crests[o.slug]=img;});
+function org(){return ORGS.find(o=>o.slug===document.getElementById('c-org').value);}
+function draw(){
+const o=org();const name=(document.getElementById('c-name').value||'Your Name').trim();
+const reason=document.getElementById('c-reason').value;
+cx.fillStyle='#fbf7f0';cx.fillRect(0,0,1200,900);
+cx.strokeStyle=o.c1;cx.lineWidth=14;cx.strokeRect(30,30,1140,840);
+cx.strokeStyle='#c9a227';cx.lineWidth=4;cx.strokeRect(52,52,1096,796);
+cx.fillStyle=o.c1;cx.fillRect(52,52,1096,10);cx.fillRect(52,838,1096,10);
+cx.textAlign='center';cx.fillStyle='#171310';
+cx.font='600 26px Poppins, sans-serif';cx.fillText('D 9 L E G A C Y',600,120);
+cx.font='800 56px Poppins, sans-serif';cx.fillText(reason.toUpperCase(),600,190);
+cx.font='italic 26px Georgia, serif';cx.fillStyle='#4a4139';cx.fillText('This certificate is proudly presented to',600,250);
+cx.font='72px "Great Vibes", cursive';cx.fillStyle=o.c1;cx.fillText(name,600,340);
+cx.strokeStyle='#c9a227';cx.lineWidth=2;cx.beginPath();cx.moveTo(300,365);cx.lineTo(900,365);cx.stroke();
+cx.font='600 24px Poppins, sans-serif';cx.fillStyle='#171310';
+cx.fillText('of the '+o.name+' chapter ('+o.letters+')',600,425);
+cx.font='italic 25px Georgia, serif';cx.fillStyle='#4a4139';
+cx.fillText('\u201C'+o.motto+'\u201D',600,480);
+const img=crests[o.slug];
+if(img&&img.complete&&img.naturalWidth){const h=190,w=h*img.naturalWidth/img.naturalHeight;cx.drawImage(img,600-w/2,510,w,h);}
+cx.font='24px Georgia, serif';cx.fillStyle='#171310';cx.textAlign='left';
+cx.fillText(new Date().toLocaleDateString(),130,800);
+cx.beginPath();cx.moveTo(90,812);cx.lineTo(330,812);cx.stroke();cx.font='13px Poppins';cx.fillText('DATE',200,834);
+cx.textAlign='right';cx.font='24px Georgia, serif';
+cx.fillText(o.owner||'Chapter Owner',1070,800);
+cx.beginPath();cx.moveTo(870,812);cx.lineTo(1110,812);cx.stroke();cx.font='13px Poppins';cx.fillText('CHAPTER OWNER',990,834);
+cx.textAlign='center';cx.font='italic 30px "Great Vibes", cursive';cx.fillStyle='#8a6d1d';
+cx.fillText('With Jesus Christ',600,760);
+cx.font='11px Poppins, sans-serif';cx.fillStyle='#a2937f';
+cx.fillText('Fan-made certificate from d9legacy.github.io - not an official document.',600,872);
+}
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();draw();
+document.getElementById('c-status').textContent='Preview updated below.';});
+document.getElementById('c-name').addEventListener('input',draw);
+document.getElementById('c-org').addEventListener('change',draw);
+document.getElementById('c-reason').addEventListener('change',draw);
+document.getElementById('c-dl').addEventListener('click',()=>{draw();
+const name=(document.getElementById('c-name').value||'certificate').trim().replace(/[^a-z0-9]+/gi,'-');
+const a=document.createElement('a');a.download=name+'-d9legacy-certificate.png';a.href=cv.toDataURL('image/png');a.click();
+document.getElementById('c-status').textContent='Downloaded! Check your downloads.';});
+draw();
+</script></div>
+<footer class="sitefoot">
+  <p><b>D9Legacy</b> is a fan-made, kid-friendly website about the Divine Nine. It is not an official website of any organization.</p>
+  <p>Questions or ideas? Text the D9Legacy line: <b>(678) 734-0325</b> &bull; Follow <b>@d9legacy7</b> on TikTok.</p>
+  <p>Started in 1906. Est. by Josh in 2026. <span class="faith">With Jesus Christ</span></p>
+</footer>
+</body>
+</html>

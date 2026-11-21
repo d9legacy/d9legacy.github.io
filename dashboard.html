@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner Dashboard - D9Legacy</title>
+<meta name="description" content="The D9Legacy owner dashboard demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d9features.css?v=feat1">
+<link rel="stylesheet" href="site-menu.css?v=menu1">
+<script src="site-menu.js?v=directory2" defer></script>
+</head>
+<body data-d9root="1">
+<div class="topbar"><span>Started in 1906 &bull; Est. by Josh in 2026</span><span><a href="https://d9legacy.github.io/">D9Legacy</a> &bull; Fan-made, not an official organization website</span></div>
+<header class="site">
+  <a class="d9-emblem" href="index.html" aria-label="D9Legacy home">D9L</a>
+  <div class="brand"><small>The Divine Nine &bull; Kids Edition</small><h1>D9LEGACY</h1><div class="inc">WITH JESUS CHRIST</div></div>
+  <nav class="main"><a href="index.html">Home</a><a href="locator.html">Chapter Locator</a><a href="spotlights.html">Nine Spotlights</a><a href="history.html">D9 History</a><a href="timeline.html">Founders Timeline</a><a href="compare.html">Compare Orgs</a><a href="greek-alphabet.html">Greek Alphabet</a><a href="achievements.html">Achievements</a><a href="awards.html">Awards</a><a href="collab-wall.html">Collab Wall</a><a href="guestbook.html">Guestbook</a><a href="newsletter.html">Newsletter</a><a href="certificates.html">Certificates</a><a href="leadership.html">Contact Leadership</a><a href="faq.html">FAQ</a><a href="dashboard.html" class="here">Owner Dashboard</a></nav>
+</header>
+<div class="wrap">
+<section class="hero"><p class="kicker">For Chapter Owners</p><h2>Owner Dashboard</h2><p class="sub">The D9Legacy control room: edit site info, manage members, approve interest letters, post announcements and more.</p></section>
+<section class="sec">
+<div class="dash-banner"><b>Demo dashboard.</b> Everything here is saved only on this device, in this browser. It does not change the real website for other people, it is not a secure account, and it cannot really send or store anything online. It is for practicing being an owner. Do not use a real password anywhere on this site.</div>
+<form class="demo" id="dgate">
+<label for="dg-org">Your chapter</label><select id="dg-org"><option value="ΑΦΑ">Alpha Phi Alpha (ΑΦΑ)</option><option value="ΑΚΑ">Alpha Kappa Alpha (ΑΚΑ)</option><option value="ΚΑΨ">Kappa Alpha Psi (ΚΑΨ)</option><option value="ΩΨΦ">Omega Psi Phi (ΩΨΦ)</option><option value="ΔΣΘ">Delta Sigma Theta (ΔΣΘ)</option><option value="ΦΒΣ">Phi Beta Sigma (ΦΒΣ)</option><option value="ΖΦΒ">Zeta Phi Beta (ΖΦΒ)</option><option value="ΣΓΡ">Sigma Gamma Rho (ΣΓΡ)</option><option value="ΙΦΘ">Iota Phi Theta (ΙΦΘ)</option></select>
+<label for="dg-name">Owner name</label><input id="dg-name" maxlength="40" autocomplete="off" required>
+<label for="dg-pass">Owner password</label><input id="dg-pass" type="password" autocomplete="off" required>
+<button class="btn" type="submit">Open dashboard</button><p class="statusmsg" id="dg-status" role="status" style="color:#8b2424"></p>
+</form>
+
+<div id="dash" hidden>
+<p class="note" id="dash-who"></p>
+<div class="dash-tabs" id="dtabs"></div>
+<div class="dash-pane" id="dpane"></div>
+</div>
+</section>
+<script>
+const ORGS=[{"slug": "alpha-phi-alpha", "name": "Alpha Phi Alpha", "letters": "\u0391\u03a6\u0391", "owner": "Josh (Joshua Samuel)"}, {"slug": "alpha-kappa-alpha", "name": "Alpha Kappa Alpha", "letters": "\u0391\u039a\u0391", "owner": "Jaylee D. Strong"}, {"slug": "kappa-alpha-psi", "name": "Kappa Alpha Psi", "letters": "\u039a\u0391\u03a8", "owner": "Christopher \"CJ\" Smith"}, {"slug": "omega-psi-phi", "name": "Omega Psi Phi", "letters": "\u03a9\u03a8\u03a6", "owner": null}, {"slug": "delta-sigma-theta", "name": "Delta Sigma Theta", "letters": "\u0394\u03a3\u0398", "owner": "Kinte (King Murry)"}, {"slug": "phi-beta-sigma", "name": "Phi Beta Sigma", "letters": "\u03a6\u0392\u03a3", "owner": null}, {"slug": "zeta-phi-beta", "name": "Zeta Phi Beta", "letters": "\u0396\u03a6\u0392", "owner": null}, {"slug": "sigma-gamma-rho", "name": "Sigma Gamma Rho", "letters": "\u03a3\u0393\u03a1", "owner": "Ivory Cooper"}, {"slug": "iota-phi-theta", "name": "Iota Phi Theta", "letters": "\u0399\u03a6\u0398", "owner": null}];
+const PW={"\u0391\u03a6\u0391": "AlphaGold1906", "\u0391\u039a\u0391": "PinkPearl1908", "\u039a\u0391\u03a8": "CrimsonCane1911", "\u03a9\u03a8\u03a6": "PurpleQue1911", "\u0394\u03a3\u0398": "DeltaTorch1913", "\u03a6\u0392\u03a3": "BlueSigma1914", "\u0396\u03a6\u0392": "WhiteDove1920", "\u03a3\u0393\u03a1": "RoyalPoodle1922", "\u0399\u03a6\u0398": "SilverCentaur1963"};
+const EXTRA={"\u0391\u03a6\u0391": ["Josh", "JoshAlpha1906"], "\u0394\u03a3\u0398": ["Kinte", "KinteDST1913"]};
+let CUR=null;
+const LS=k=>'d9dash:'+CUR.letters+':'+k;
+const read=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v===null?d:v}catch(e){return d}};
+const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+
+const TABS=[
+ ['site','Edit website information'],['members','Manage member profiles'],['letters','Approve interest forms'],
+ ['announce','Post announcements'],['events','Manage events'],['pics','Upload pictures'],['roles','Manage leadership roles']];
+
+document.getElementById('dgate').addEventListener('submit',e=>{
+e.preventDefault();
+const letters=document.getElementById('dg-org').value;
+const name=document.getElementById('dg-name').value.trim();
+const pass=document.getElementById('dg-pass').value;
+const st=document.getElementById('dg-status');
+const ok=pass===PW[letters]||(EXTRA[letters]&&name.toLowerCase()===EXTRA[letters][0].toLowerCase()&&pass===EXTRA[letters][1]);
+if(!ok){st.textContent='That owner password is not right for this chapter.';return;}
+CUR=ORGS.find(o=>o.letters===letters);st.textContent='';
+document.getElementById('dgate').hidden=true;document.getElementById('dash').hidden=false;
+document.getElementById('dash-who').textContent='Signed in (demo) as '+name+', owner of '+CUR.name+'.';
+buildTabs();showTab('site');
+});
+
+function buildTabs(){const t=document.getElementById('dtabs');t.innerHTML='';
+TABS.forEach(([id,label])=>{const b=document.createElement('button');b.textContent=label;b.id='tab-'+id;
+b.onclick=()=>showTab(id);t.appendChild(b);});}
+function showTab(id){TABS.forEach(([x])=>document.getElementById('tab-'+x).classList.toggle('on',x===id));
+const p=document.getElementById('dpane');p.innerHTML='';PANES[id](p);}
+
+function field(p,label,id,type,val){const l=document.createElement('label');l.htmlFor=id;l.textContent=label;p.appendChild(l);
+const el=document.createElement(type==='textarea'?'textarea':'input');el.id=id;if(type!=='textarea')el.type=type;
+if(val!==undefined)el.value=val;p.appendChild(el);return el;}
+function saveBtn(p,fn){const b=document.createElement('button');b.className='btn';b.type='button';b.textContent='Save (this device only)';
+b.style.marginTop='14px';b.onclick=fn;p.appendChild(b);return b;}
+function msg(p){const m=document.createElement('p');m.className='statusmsg';p.appendChild(m);return m;}
+function listOf(p,items,fmt,onDel){const ul=document.createElement('ul');items.forEach((it,i)=>{const li=document.createElement('li');
+li.innerHTML=fmt(it);
+if(onDel){const b=document.createElement('button');b.className='btn ghost';b.style.cssText='padding:6px 12px;font-size:10px;margin-left:10px';b.textContent='Remove';
+b.onclick=()=>onDel(i);li.appendChild(b);}
+ul.appendChild(li);});if(!items.length){const em=document.createElement('p');em.className='mini';em.textContent='Nothing here yet.';p.appendChild(em);}else p.appendChild(ul);}
+
+const PANES={
+site(p){p.innerHTML='<h4>Edit website information</h4><p class="mini">Change how your chapter presents itself. Demo only: these edits stay on this device.</p>';
+const info=read(LS('siteinfo'),{tagline:'',announcement:''});
+const t=field(p,'Chapter tagline','ds-tag','text',info.tagline);
+const a=field(p,'Homepage announcement','ds-ann','textarea',info.announcement);const m=msg(p);
+saveBtn(p,()=>{save(LS('siteinfo'),{tagline:t.value.trim(),announcement:a.value.trim()});m.textContent='Saved on this device.';});},
+members(p){p.innerHTML='<h4>Manage member profiles</h4><p class="mini">Keep your chapter roster. Demo only.</p>';
+const key=LS('members');let mem=read(key,CUR.owner?[{name:CUR.owner,role:'Chapter owner',since:'2026'}]:[]);
+const render=()=>{p.querySelectorAll('ul,.mini').forEach(x=>x.remove());
+listOf(p,mem,m=>'<b></b> - <span class="mini"></span>',i=>{mem.splice(i,1);save(key,mem);render();});
+p.querySelectorAll('li').forEach((li,i)=>{li.querySelector('b').textContent=mem[i].name;li.querySelector('.mini').textContent=mem[i].role+(mem[i].since?' - since '+mem[i].since:'');});};
+const n=field(p,'New member name','dm-n');const r=field(p,'Role (member, officer...)','dm-r');const m=msg(p);
+saveBtn(p,()=>{if(!n.value.trim())return;mem.push({name:n.value.trim(),role:r.value.trim()||'Member',since:String(new Date().getFullYear())});save(key,mem);n.value='';r.value='';m.textContent='Member added on this device.';render();});render();},
+letters(p){p.innerHTML='<h4>Approve interest forms</h4><p class="mini">Join letters saved on this device for your chapter (the same ones from your owner inbox). Approving here updates the same demo record.</p>';
+const letters=(read('d9legacy:d9kids-letters.v1',[])||[]).filter(l=>typeof l.group==='string'&&l.group.endsWith('('+CUR.letters+')'));
+const dec=read('d9legacy:d9kids-decisions.v1',{})||{};
+if(!letters.length){p.innerHTML+='<p class="mini">No letters for this chapter on this device yet. Letters written on this device will appear here.</p>';return;}
+const ul=document.createElement('ul');
+letters.forEach(l=>{const li=document.createElement('li');
+const status=dec[l.id]==='accepted'?'Accepted':dec[l.id]==='declined'?'Declined':'Waiting';
+li.innerHTML='<b></b> <span class="mini"></span><br><span class="mini"></span><div class="btnrow" style="margin-top:8px"></div>';
+li.querySelector('b').textContent=l.name+' wants to join '+l.group;
+li.querySelectorAll('.mini')[0].textContent='Grade: '+(l.grade||'?')+' - Quiz: '+(l.score??'?')+'/'+(l.total??'?')+' - Status: '+status;
+li.querySelectorAll('.mini')[1].textContent=(l.why||'').slice(0,160);
+const row=li.querySelector('.btnrow');
+['accepted','declined'].forEach(d=>{const b=document.createElement('button');b.className=d==='accepted'?'btn':'btn ghost';
+b.style.cssText='padding:8px 14px;font-size:10px';b.textContent=d==='accepted'?'Accept':'Decline';
+b.onclick=()=>{dec[l.id]=d;save('d9legacy:d9kids-decisions.v1',dec);showTab('letters');};row.appendChild(b);});
+ul.appendChild(li);});p.appendChild(ul);},
+announce(p){p.innerHTML='<h4>Post announcements</h4><p class="mini">Announcements stay on this device (demo).</p>';
+const key=LS('announce');let ann=read(key,[]);
+const render=()=>{p.querySelectorAll('ul,.mini').forEach(x=>x.remove());
+listOf(p,ann,a=>'<b></b> <span class="mini"></span><br><span></span>',i=>{ann.splice(i,1);save(key,ann);render();});
+p.querySelectorAll('li').forEach((li,i)=>{li.querySelector('b').textContent=ann[i].title;li.querySelector('.mini').textContent=ann[i].when;li.querySelectorAll('span')[1].textContent=ann[i].text;});};
+const t=field(p,'Announcement title','da-t');const x=field(p,'Announcement','da-x','textarea');const m=msg(p);
+saveBtn(p,()=>{if(!t.value.trim())return;ann.unshift({title:t.value.trim(),text:x.value.trim(),when:new Date().toLocaleDateString()});save(key,ann);t.value='';x.value='';m.textContent='Posted on this device.';render();});render();},
+events(p){p.innerHTML='<h4>Manage events</h4><p class="mini">Plan chapter events. Demo only.</p>';
+const key=LS('events');let ev=read(key,[]);
+const render=()=>{p.querySelectorAll('ul,.mini').forEach(x=>x.remove());
+listOf(p,ev,e=>'<b></b> <span class="mini"></span><br><span></span>',i=>{ev.splice(i,1);save(key,ev);render();});
+p.querySelectorAll('li').forEach((li,i)=>{li.querySelector('b').textContent=ev[i].title;li.querySelector('.mini').textContent=ev[i].date;li.querySelectorAll('span')[1].textContent=ev[i].desc;});};
+const t=field(p,'Event name','de-t');const d=field(p,'Date','de-d','text');const x=field(p,'Details','de-x','textarea');const m=msg(p);
+saveBtn(p,()=>{if(!t.value.trim())return;ev.push({title:t.value.trim(),date:d.value.trim(),desc:x.value.trim()});save(key,ev);t.value='';d.value='';x.value='';m.textContent='Event saved on this device.';render();});render();},
+pics(p){p.innerHTML='<h4>Upload pictures</h4><p class="mini">Pick pictures from this device to preview them here. They are not uploaded anywhere and disappear when you leave the page - the real site cannot store them.</p>';
+const inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.multiple=true;p.appendChild(inp);
+const gal=document.createElement('div');gal.className='grid';gal.style.marginTop='14px';p.appendChild(gal);
+inp.onchange=()=>{gal.innerHTML='';[...inp.files].forEach(f=>{const img=document.createElement('img');
+img.style.cssText='width:100%;border-radius:8px;border:1px solid #e7ddcf';img.alt=f.name;img.src=URL.createObjectURL(f);gal.appendChild(img);});};},
+roles(p){p.innerHTML='<h4>Manage leadership roles</h4><p class="mini">Assign chapter roles. Demo only.</p>';
+const key=LS('roles');let roles=read(key,CUR.owner?[{role:'Chapter owner',person:CUR.owner}]:[]);
+const render=()=>{p.querySelectorAll('ul,.mini').forEach(x=>x.remove());
+listOf(p,roles,r=>'<b></b> - <span></span>',i=>{roles.splice(i,1);save(key,roles);render();});
+p.querySelectorAll('li').forEach((li,i)=>{li.querySelector('b').textContent=roles[i].role;li.querySelector('span').textContent=roles[i].person;});};
+const r=field(p,'Role (President, Vice President, Keeper of Records...)','dr-r');const n=field(p,'Person','dr-n');const m=msg(p);
+saveBtn(p,()=>{if(!r.value.trim()||!n.value.trim())return;roles.push({role:r.value.trim(),person:n.value.trim()});save(key,roles);r.value='';n.value='';m.textContent='Role saved on this device.';render();});render();},
+};
+</script></div>
+<footer class="sitefoot">
+  <p><b>D9Legacy</b> is a fan-made, kid-friendly website about the Divine Nine. It is not an official website of any organization.</p>
+  <p>Questions or ideas? Text the D9Legacy line: <b>(678) 734-0325</b> &bull; Follow <b>@d9legacy7</b> on TikTok.</p>
+  <p>Started in 1906. Est. by Josh in 2026. <span class="faith">With Jesus Christ</span></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Leadership - D9Legacy</title>
+<meta name="description" content="Meet the D9Legacy chapter owners and send a demo message.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d9features.css?v=feat1">
+<link rel="stylesheet" href="site-menu.css?v=menu1">
+<script src="site-menu.js?v=directory2" defer></script>
+</head>
+<body data-d9root="1">
+<div class="topbar"><span>Started in 1906 &bull; Est. by Josh in 2026</span><span><a href="https://d9legacy.github.io/">D9Legacy</a> &bull; Fan-made, not an official organization website</span></div>
+<header class="site">
+  <a class="d9-emblem" href="index.html" aria-label="D9Legacy home">D9L</a>
+  <div class="brand"><small>The Divine Nine &bull; Kids Edition</small><h1>D9LEGACY</h1><div class="inc">WITH JESUS CHRIST</div></div>
+  <nav class="main"><a href="index.html">Home</a><a href="locator.html">Chapter Locator</a><a href="spotlights.html">Nine Spotlights</a><a href="history.html">D9 History</a><a href="timeline.html">Founders Timeline</a><a href="compare.html">Compare Orgs</a><a href="greek-alphabet.html">Greek Alphabet</a><a href="achievements.html">Achievements</a><a href="awards.html">Awards</a><a href="collab-wall.html">Collab Wall</a><a href="guestbook.html">Guestbook</a><a href="newsletter.html">Newsletter</a><a href="certificates.html">Certificates</a><a href="leadership.html" class="here">Contact Leadership</a><a href="faq.html">FAQ</a><a href="dashboard.html">Owner Dashboard</a></nav>
+</header>
+<div class="wrap">
+<section class="hero"><p class="kicker">Say Hello</p><h2>Contact Leadership</h2><p class="sub">Meet the D9Legacy chapter owners and send them a message.</p></section>
+<section class="sec">
+<div class="sec-title"><p class="over">The Owners</p><h3>Chapter Leadership</h3><div class="rule"></div></div>
+<div class="grid wide"><div class="card" style="border-top-color:#0f0d0b"><img src="alpha-phi-alpha/crest.png" alt="" style="width:64px;float:right" loading="lazy">
+<h4>Josh (Joshua Samuel)</h4><p><b>Owner & President</b>, Alpha Phi Alpha ΑΦΑ</p><p class="note">Home chapter</p></div><div class="card" style="border-top-color:#d4576a"><img src="alpha-kappa-alpha/crest.png" alt="" style="width:64px;float:right" loading="lazy">
+<h4>Jaylee D. Strong</h4><p><b>Owner & Basileus</b>, Alpha Kappa Alpha ΑΚΑ</p><p class="note">Alpha Rho Chapter</p></div><div class="card" style="border-top-color:#a6192e"><img src="kappa-alpha-psi/crest.png" alt="" style="width:64px;float:right" loading="lazy">
+<h4>Christopher "CJ" Smith</h4><p><b>Chapter Owner</b>, Kappa Alpha Psi ΚΑΨ</p><p class="note">Kappa Nu Chapter</p></div><div class="card" style="border-top-color:#a6192e"><img src="delta-sigma-theta/crest.png" alt="" style="width:64px;float:right" loading="lazy">
+<h4>Kinte (King Murry)</h4><p><b>Chapter Owner</b>, Delta Sigma Theta ΔΣΘ</p><p class="note">Home chapter</p></div><div class="card" style="border-top-color:#1b3d8f"><img src="sigma-gamma-rho/crest.png" alt="" style="width:64px;float:right" loading="lazy">
+<h4>Ivory Cooper</h4><p><b>Chapter Owner</b>, Sigma Gamma Rho ΣΓΡ</p><p class="note">Sigma Rho Chapter</p></div><div class="card"><h4>Josh (Joshua Samuel)</h4><p><b>Founder of D9Legacy</b>, est. 2026</p><p class="note">Also Owner &amp; President of Alpha Phi Alpha</p></div></div>
+<p class="note">Still open: Omega Psi Phi, Phi Beta Sigma, Zeta Phi Beta, Iota Phi Theta. Maybe a future owner is reading this right now.</p>
+</section>
+<section class="sec">
+<div class="sec-title"><p class="over">Send a Message</p><h3>Write to a Leader</h3><div class="rule"></div></div>
+<p class="honesty">This form is a demo. Your message is saved only on this device - it does not actually reach the leader yet. For a real reply, text the D9Legacy line at (678) 734-0325.</p>
+<form class="demo" id="leadform">
+<label for="lf-who">Leader</label><select id="lf-who"><option value="Josh (Joshua Samuel) (ΑΦΑ)">Josh (Joshua Samuel) - Alpha Phi Alpha</option><option value="Jaylee D. Strong (ΑΚΑ)">Jaylee D. Strong - Alpha Kappa Alpha</option><option value="Christopher "CJ" Smith (ΚΑΨ)">Christopher "CJ" Smith - Kappa Alpha Psi</option><option value="Kinte (King Murry) (ΔΣΘ)">Kinte (King Murry) - Delta Sigma Theta</option><option value="Ivory Cooper (ΣΓΡ)">Ivory Cooper - Sigma Gamma Rho</option><option value="Josh (Founder)">Josh - Founder of D9Legacy</option></select>
+<label for="lf-name">Your first name</label><input id="lf-name" maxlength="30" required>
+<label for="lf-msg">Your message</label><textarea id="lf-msg" maxlength="500" required></textarea>
+<button class="btn" type="submit">Save message</button><p class="statusmsg" id="lf-status" role="status"></p>
+</form>
+<div class="wall-list" id="lf-list"></div>
+</section>
+<script>
+const KEY='d9legacy:lead-msgs.v1';
+const read=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}};
+const save=m=>localStorage.setItem(KEY,JSON.stringify(m));
+function render(){const list=document.getElementById('lf-list');const msgs=read();
+list.innerHTML=msgs.length?'<h3 style="font-family:Poppins">Messages saved on this device</h3>':'';
+msgs.slice().reverse().forEach(m=>{const d=document.createElement('div');d.className='wall-item';
+d.innerHTML='<h4></h4><span class="when"></span><p></p>';
+d.querySelector('h4').textContent='To '+m.who+' from '+m.name;
+d.querySelector('.when').textContent=m.when;d.querySelector('p').textContent=m.msg;list.appendChild(d);});}
+document.getElementById('leadform').addEventListener('submit',e=>{e.preventDefault();
+const msgs=read();msgs.push({who:document.getElementById('lf-who').value,name:document.getElementById('lf-name').value.trim(),msg:document.getElementById('lf-msg').value.trim(),when:new Date().toLocaleDateString()});
+save(msgs);e.target.reset();document.getElementById('lf-status').textContent='Saved on this device (demo - not really sent).';render();});
+render();
+</script></div>
+<footer class="sitefoot">
+  <p><b>D9Legacy</b> is a fan-made, kid-friendly website about the Divine Nine. It is not an official website of any organization.</p>
+  <p>Questions or ideas? Text the D9Legacy line: <b>(678) 734-0325</b> &bull; Follow <b>@d9legacy7</b> on TikTok.</p>
+  <p>Started in 1906. Est. by Josh in 2026. <span class="faith">With Jesus Christ</span></p>
+</footer>
+</body>
+</html>

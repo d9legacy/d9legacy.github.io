@@ -5,6 +5,7 @@
     const source = chapter?.querySelector('nav.main') || document.querySelector('nav');
     if (!source) return;
     const isChapter = Boolean(chapter);
+    const isRoot = document.body.dataset.d9root === '1';
     document.body.classList.add('d9-has-menu');
     source.classList.add('d9-original-nav');
     const button = document.createElement('button');
@@ -27,10 +28,10 @@
     const nav = document.createElement('nav');
     nav.setAttribute('aria-label', 'Main menu');
     const login = document.createElement('a');
-    login.href = isChapter ? 'login.html' : '/#/login';
+    login.href = (isChapter && !isRoot) ? 'login.html' : '/#/login';
     login.className = 'd9-login-link'; login.textContent = 'Login';
     nav.append(login);
-    if (isChapter) {
+    if (isChapter && !isRoot) {
       const directory = document.createElement('a');
       directory.href = 'directory.html'; directory.textContent = 'Chapter Directory';
       nav.append(directory);
@@ -43,6 +44,23 @@
         if (url.origin === location.origin && !url.hash && url.pathname !== '/') copy.href = '/#' + url.pathname;
       }
       nav.append(copy);
+    });
+    const features = [
+      ['Chapter Locator','/locator.html'],['Nine Spotlights','/spotlights.html'],['D9 History','/history.html'],
+      ['Founders Timeline','/timeline.html'],['Compare Orgs','/compare.html'],['Greek Alphabet','/greek-alphabet.html'],
+      ['Achievements','/achievements.html'],['Awards','/awards.html'],['Collab Wall','/collab-wall.html'],
+      ['Guestbook','/guestbook.html'],['Newsletter','/newsletter.html'],['Certificates','/certificates.html'],
+      ['Contact Leadership','/leadership.html'],['FAQ','/faq.html'],['Owner Dashboard','/dashboard.html']
+    ];
+    const divider = document.createElement('p');
+    divider.className = 'd9-menu-note';
+    divider.style.marginTop = '14px';
+    divider.textContent = 'D9Legacy features';
+    nav.append(divider);
+    features.forEach(([label, href]) => {
+      const a = document.createElement('a');
+      a.href = href; a.textContent = label;
+      nav.append(a);
     });
     const note = document.createElement('p');
     note.className = 'd9-menu-note'; note.textContent = 'D9Legacy · Fan-made, not an official organization website.';
